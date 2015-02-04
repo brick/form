@@ -1,0 +1,29 @@
+{
+    "name": "brick/form",
+    "description": "Web form library",
+    "type": "library",
+    "keywords": [
+        "Brick",
+        "Form",
+        "Input",
+        "Select",
+        "Textarea",
+        "Button"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.5",
+        "brick/brick": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brick\\Form\\": "src/",
+            "Brick\\Form\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
