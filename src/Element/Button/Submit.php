@@ -2,12 +2,12 @@
 
 namespace Brick\Form\Element\Button;
 
-use Brick\Form\Element\Button;
+use Brick\Form\Element;
 
 /**
  * Represents a submit button element.
  */
-class Submit extends Button
+class Submit extends Element\Button
 {
     /**
      * @var boolean

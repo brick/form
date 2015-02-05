@@ -2,10 +2,12 @@
 
 namespace Brick\Form\Element\Button;
 
+use Brick\Form\Element;
+
 /**
  * Represents a button element.
  */
-class Button extends \Brick\Form\Element\Button
+class Button extends Element\Button
 {
     /**
      * {@inheritdoc}
