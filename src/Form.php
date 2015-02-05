@@ -438,6 +438,16 @@ class Form extends Base
     }
 
     /**
+     * @param string $name
+     *
+     * @return Group\RadioGroup
+     */
+    public function addInputGroup($name)
+    {
+        return $this->addComponent($name, new Group\InputGroup($this, $name));
+    }
+
+    /**
      * @param string $action
      *
      * @return \Brick\Form\Form
