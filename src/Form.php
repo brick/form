@@ -10,10 +10,6 @@ use Brick\Http\Request;
  */
 class Form extends Base
 {
-    const ENCTYPE_URLENCODED = 'application/x-www-form-urlencoded';
-    const ENCTYPE_MULTIPART  = 'multipart/form-data';
-    const ENCTYPE_PLAIN      = 'text/plain';
-
     /**
      * @var \Brick\Html\ContainerTag|null
      */
@@ -520,7 +516,7 @@ class Form extends Base
      */
     public function setEnctypeUrlencoded()
     {
-        $this->getTag()->setAttribute('enctype', self::ENCTYPE_URLENCODED);
+        $this->getTag()->setAttribute('enctype', 'application/x-www-form-urlencoded');
 
         return $this;
     }
@@ -530,7 +526,7 @@ class Form extends Base
      */
     public function setEnctypeMultipart()
     {
-        $this->getTag()->setAttribute('enctype', self::ENCTYPE_MULTIPART);
+        $this->getTag()->setAttribute('enctype', 'multipart/form-data');
 
         return $this;
     }
@@ -540,7 +536,7 @@ class Form extends Base
      */
     public function setEnctypeTextPlain()
     {
-        $this->getTag()->setAttribute('enctype', self::ENCTYPE_PLAIN);
+        $this->getTag()->setAttribute('enctype', 'text/plain');
 
         return $this;
     }
