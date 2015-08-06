@@ -640,6 +640,20 @@ class Form extends Base
     }
 
     /**
+     * @return array
+     */
+    public function getValues()
+    {
+        $values = [];
+
+        foreach ($this->components as $name => $component) {
+            $values[$name] = $component->getValue();
+        }
+
+        return $values;
+    }
+
+    /**
      * Returns all form-level errors and component-level errors.
      *
      * @return string[]

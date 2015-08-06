@@ -31,6 +31,8 @@ class InputGroup extends Group
     }
 
     /**
+     * @todo Now that getValue() is part of the Component interface, this method should be deprecated? Or kept as alias?
+     *
      * @return array
      */
     public function getValues()
@@ -42,6 +44,14 @@ class InputGroup extends Group
         }
 
         return $values;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValue()
+    {
+        return $this->getValues();
     }
 
     /**

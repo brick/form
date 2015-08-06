@@ -353,4 +353,9 @@ abstract class Component extends Base
      * @return string
      */
     abstract public function getName();
+
+    /**
+     * @return string|array|null
+     */
+    abstract public function getValue();
 }

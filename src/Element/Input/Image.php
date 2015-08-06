@@ -20,4 +20,12 @@ class Image extends Input
     {
         return 'image';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValue()
+    {
+        return null;
+    }
 }

@@ -22,4 +22,12 @@ class File extends Input
     {
         return 'file';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValue()
+    {
+        return null;
+    }
 }
