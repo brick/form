@@ -119,21 +119,23 @@ abstract class Component extends Base
     }
 
     /**
-     * @param string $messageKey
-     * @param string $message
+     * @param string $messageKey     The unique message key for the translation system.
+     * @param string $defaultMessage The default message in English, if no translator is available.
      *
      * @return void
      */
-    private function addTranslatableError($messageKey, $message)
+    private function addTranslatableError($messageKey, $defaultMessage)
     {
-        if ($this->translator) {
-            $translatedMessage = $this->translator->translate($messageKey);
+        $translator = $this->form->getTranslator();
+
+        if ($translator) {
+            $translatedMessage = $translator->translate($messageKey);
             if ($translatedMessage !== $messageKey) {
-                $message = $translatedMessage;
+                $defaultMessage = $translatedMessage;
             }
         }
 
-        $this->addError($message);
+        $this->addError($defaultMessage);
     }
 
     /**

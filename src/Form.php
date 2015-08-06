@@ -4,6 +4,7 @@ namespace Brick\Form;
 
 use Brick\Html\ContainerTag;
 use Brick\Http\Request;
+use Brick\Translation\Translator;
 
 /**
  * Represents an HTML form.
@@ -24,6 +25,11 @@ class Form extends Base
      * @var array
      */
     private $ids = [];
+
+    /**
+     * @var \Brick\Translation\Translator|null
+     */
+    private $translator;
 
     /**
      * @param Element $element
@@ -667,5 +673,25 @@ class Form extends Base
         }
 
         return $errors;
+    }
+
+    /**
+     * @return Translator|null
+     */
+    public function getTranslator()
+    {
+        return $this->translator;
+    }
+
+    /**
+     * @param Translator $translator
+     *
+     * @return Form
+     */
+    public function setTranslator(Translator $translator)
+    {
+        $this->translator = $translator;
+
+        return $this;
     }
 }
