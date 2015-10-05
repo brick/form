@@ -74,6 +74,14 @@ class Label
     }
 
     /**
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return $this->tag->isEmpty();
+    }
+
+    /**
      * Renders the label.
      *
      * @return string
