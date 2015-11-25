@@ -25,9 +25,22 @@ class RadioGroup extends Group
     public function addRadio()
     {
         $radio = new Radio($this->form, $this->name);
+        $radio->setRequired($this->isRequired());
         $this->radios[] = $radio;
 
         return $radio;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setRequired($required)
+    {
+        foreach ($this->radios as $radio) {
+            $radio->setRequired($required);
+        }
+
+        return parent::setRequired($required);
     }
 
     /**
