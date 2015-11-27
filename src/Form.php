@@ -591,7 +591,7 @@ class Form extends Base
     }
 
     /**
-     * Populates the form with the request data.
+     * Populates the form with an associative array of data.
      *
      * @param array $data
      *
@@ -610,7 +610,7 @@ class Form extends Base
     }
 
     /**
-     * Checks if the submitted data is valid for the given Request, and populates the form.
+     * Populates the form with the request data.
      *
      * @param \Brick\Http\Request $request
      *
@@ -626,12 +626,26 @@ class Form extends Base
     }
 
     /**
+     * Validates the form, and adds errors when required.
+     *
+     * This method is only meant to be implemented by subclasses, to call `addError()` on the form itself,
+     * and/or on its components. This allows forms to perform custom validation on top of component validators.
+     *
+     * @return void
+     */
+    protected function validate()
+    {
+    }
+
+    /**
      * Returns whether the form is valid.
      *
      * @return boolean
      */
     public function isValid()
     {
+        $this->validate();
+
         if ($this->hasErrors()) {
             return false;
         }
