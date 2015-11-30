@@ -12,6 +12,7 @@ use Brick\Form\Attribute\ReadOnlyAttribute;
 use Brick\Form\Attribute\RequiredAttribute;
 use Brick\Form\Attribute\SizeAttribute;
 use Brick\Form\Attribute\ValueAttribute;
+use Brick\Validation\Validator\UrlValidator;
 
 /**
  * Represents a url input element.
@@ -27,6 +28,14 @@ class Url extends Input
     use RequiredAttribute;
     use SizeAttribute;
     use ValueAttribute;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function init()
+    {
+        $this->addValidator(new UrlValidator());
+    }
 
     /**
      * {@inheritdoc}
