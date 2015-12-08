@@ -442,7 +442,7 @@ class Form extends Base
     /**
      * @param string $name
      *
-     * @return Group\RadioGroup
+     * @return Group\InputGroup
      */
     public function addInputGroup($name)
     {
