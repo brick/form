@@ -32,4 +32,22 @@ abstract class Group extends Component
      * @return \Brick\Form\Element[]
      */
     abstract public function getElements();
+
+    /**
+     * Renders the elements in this group.
+     *
+     * The result is a simple concatenated output of all elements in the group, in the order they have been registered.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $output = '';
+
+        foreach ($this->getElements() as $element) {
+            $output .= (string) $element;
+        }
+
+        return $output;
+    }
 }

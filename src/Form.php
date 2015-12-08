@@ -708,4 +708,22 @@ class Form extends Base
 
         return $this;
     }
+
+    /**
+     * Returns an un-decorated version of this form.
+     *
+     * All fields are concatenated in the order they have been registered.
+     */
+    public function __toString()
+    {
+        $output = $this->open();
+
+        foreach ($this->components as $component) {
+            $output .= (string) $component;
+        }
+
+        $output .= $this->close();
+
+        return $output;
+    }
 }

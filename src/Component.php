@@ -360,4 +360,9 @@ abstract class Component extends Base
      * @return string|array|null
      */
     abstract public function getValue();
+
+    /**
+     * @return string
+     */
+    abstract public function __toString();
 }
