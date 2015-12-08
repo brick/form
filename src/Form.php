@@ -571,6 +571,18 @@ class Form extends Base
     }
 
     /**
+     * @param array $attributes
+     *
+     * @return static
+     */
+    public function setAttributes(array $attributes)
+    {
+        $this->getTag()->setAttributes($attributes);
+
+        return $this;
+    }
+
+    /**
      * Renders the opening tag.
      *
      * @return string
