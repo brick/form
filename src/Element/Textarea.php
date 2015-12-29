@@ -3,6 +3,7 @@
 namespace Brick\Form\Element;
 
 use Brick\Form\Element;
+use Brick\Form\Attribute\MaxLengthAttribute;
 use Brick\Html\ContainerTag;
 
 /**
@@ -10,6 +11,8 @@ use Brick\Html\ContainerTag;
  */
 class Textarea extends Element
 {
+    use MaxLengthAttribute;
+
     /**
      * @var \Brick\Html\ContainerTag|null
      */
