@@ -2,7 +2,7 @@
 
 namespace Brick\Form\Attribute;
 
-use Brick\Validation\Validator\LengthValidator;
+use Brick\Validation\Validator\StringValidator;
 
 /**
  * Provides the maxlength attribute to inputs.
@@ -19,11 +19,11 @@ trait MaxLengthAttribute
     public function setMaxLength($maxLength)
     {
         $this->getTag()->setAttribute('maxlength', $maxLength);
-        $this->removeValidators(LengthValidator::class);
+        $this->removeValidators(StringValidator::class);
 
         if ($maxLength !== '') {
-            $validator = new LengthValidator();
-            $this->addValidator($validator->setMaxLength($maxLength));
+            $validator = new StringValidator(0, $maxLength);
+            $this->addValidator($validator);
         }
 
         return $this;
