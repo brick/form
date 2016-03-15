@@ -406,7 +406,7 @@ class Form extends Base
      */
     public function addMultipleSelect($name)
     {
-        return $this->addComponent($name, new Element\Select\MultipleSelect($this, $name));
+        return $this->addComponent($name, new Element\Select\MultipleSelect($this, $name . '[]'));
     }
 
     /**

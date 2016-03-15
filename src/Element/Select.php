@@ -31,6 +31,10 @@ abstract class Select extends Element
     {
         if ($this->tag === null) {
             $this->tag = new ContainerTag('select');
+
+            if ($this->isArray()) {
+                $this->tag->setAttribute('multiple', 'multiple');
+            }
         }
 
         return $this->tag;
