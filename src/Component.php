@@ -2,7 +2,7 @@
 
 namespace Brick\Form;
 
-use Brick\Filter\Filter;
+use Brick\Form\Filter\Filter;
 use Brick\Validation\Validator;
 
 /**
@@ -28,7 +28,7 @@ abstract class Component extends Base
     protected $required = false;
 
     /**
-     * @var \Brick\Filter\Filter[]
+     * @var \Brick\Form\Filter\Filter[]
      */
     private $filters = [];
 
@@ -175,7 +175,7 @@ abstract class Component extends Base
      *
      * Adding twice the same instance of a filter has no effect.
      *
-     * @param \Brick\Filter\Filter $filter
+     * @param \Brick\Form\Filter\Filter $filter
      *
      * @return static
      */
@@ -190,7 +190,7 @@ abstract class Component extends Base
     /**
      * Checks whether a filter is present.
      *
-     * @param \Brick\Filter\Filter $filter
+     * @param \Brick\Form\Filter\Filter $filter
      *
      * @return boolean
      */
@@ -206,7 +206,7 @@ abstract class Component extends Base
      *
      * Removing a non-existent filter has no effect.
      *
-     * @param \Brick\Filter\Filter $filter
+     * @param \Brick\Form\Filter\Filter $filter
      *
      * @return static
      */
