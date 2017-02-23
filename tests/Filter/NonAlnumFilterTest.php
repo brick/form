@@ -4,10 +4,12 @@ namespace Brick\Form\Tests\Filter;
 
 use Brick\Form\Filter\NonAlnumFilter;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Tests for class NonAlnumFilter.
  */
-class NonAlnumFilterTest extends \PHPUnit_Framework_TestCase
+class NonAlnumFilterTest extends TestCase
 {
     /**
      * @dataProvider providerFilter

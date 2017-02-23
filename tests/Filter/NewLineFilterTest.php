@@ -4,10 +4,12 @@ namespace Brick\Form\Tests\Filter;
 
 use Brick\Form\Filter\NewLineFilter;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Tests for class NewLineFilter.
  */
-class NewLineFilterTest extends \PHPUnit_Framework_TestCase
+class NewLineFilterTest extends TestCase
 {
     /**
      * @dataProvider providerFilter

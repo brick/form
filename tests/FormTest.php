@@ -4,10 +4,12 @@ namespace Brick\Form\Tests;
 
 use Brick\Form\Form;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Unit tests for Brick\Form.
  */
-class FormTest extends \PHPUnit_Framework_TestCase
+class FormTest extends TestCase
 {
     public function testSingleSelect()
     {
