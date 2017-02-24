@@ -7,6 +7,10 @@ php:
   - 7.1
   - hhvm
 
+matrix:
+  allow_failures:
+    - php: hhvm
+
 before_script:
   - if [[ $TRAVIS_PHP_VERSION = hhv* ]]; then echo hhvm.php7.all=1 >> /etc/hhvm/php.ini; fi
   - composer self-update
