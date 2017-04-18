@@ -68,7 +68,7 @@ class Number extends Input
     /**
      * {@inheritdoc}
      */
-    public function doSetStep($step)
+    protected function doSetStep($step)
     {
         $this->validator->setStep($step === 'any' ? null : $step);
     }
