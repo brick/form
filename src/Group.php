@@ -15,7 +15,7 @@ abstract class Group extends Component
     /**
      * {@inheritdoc}
      */
-    protected function setName($name)
+    protected function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -23,15 +23,15 @@ abstract class Group extends Component
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
 
     /**
-     * @return \Brick\Form\Element[]
+     * @return Element[]
      */
-    abstract public function getElements();
+    abstract public function getElements() : array;
 
     /**
      * Renders the elements in this group.
@@ -40,7 +40,7 @@ abstract class Group extends Component
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         $output = '';
 

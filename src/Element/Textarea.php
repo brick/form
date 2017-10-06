@@ -14,7 +14,7 @@ class Textarea extends Element
     use MaxLengthAttribute;
 
     /**
-     * @var \Brick\Html\Tag|null
+     * @var Tag|null
      */
     private $tag = null;
 
@@ -28,7 +28,7 @@ class Textarea extends Element
     /**
      * {@inheritdoc}
      */
-    protected function getTag()
+    protected function getTag() : Tag
     {
         if ($this->tag === null) {
             $this->tag = new Tag('textarea');
@@ -40,11 +40,11 @@ class Textarea extends Element
     /**
      * @param string $value
      *
-     * @return static
+     * @return Textarea
      */
-    public function setValue($value)
+    public function setValue(string $value) : Textarea
     {
-        $this->value = (string) $value;
+        $this->value = $value;
 
         return $this;
     }
@@ -52,7 +52,7 @@ class Textarea extends Element
     /**
      * @return bool
      */
-    public function hasValue()
+    public function hasValue() : bool
     {
         $value = $this->getTag()->getAttribute('value');
 
@@ -62,7 +62,7 @@ class Textarea extends Element
     /**
      * @return string
      */
-    public function getValue()
+    public function getValue() : string
     {
         return $this->value;
     }
@@ -70,7 +70,7 @@ class Textarea extends Element
     /**
      * @return string|null
      */
-    public function getValueOrNull()
+    public function getValueOrNull() : ?string
     {
         return $this->value === '' ? null : $this->value;
     }
@@ -78,7 +78,7 @@ class Textarea extends Element
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }
@@ -86,7 +86,7 @@ class Textarea extends Element
     /**
      * {@inheritdoc}
      */
-    protected function onBeforeRender()
+    protected function onBeforeRender() : void
     {
         $this->getTag()->setTextContent($this->value);
     }

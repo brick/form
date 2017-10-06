@@ -21,7 +21,7 @@ class Range extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'range';
     }
@@ -29,7 +29,7 @@ class Range extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }

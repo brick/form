@@ -16,7 +16,7 @@ class Image extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'image';
     }

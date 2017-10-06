@@ -12,12 +12,12 @@ use Brick\Translation\Translator;
 class Form extends Base
 {
     /**
-     * @var \Brick\Html\Tag|null
+     * @var Tag|null
      */
     private $tag;
 
     /**
-     * @var \Brick\Form\Component[]
+     * @var Component[]
      */
     private $components = [];
 
@@ -27,7 +27,7 @@ class Form extends Base
     private $ids = [];
 
     /**
-     * @var \Brick\Translation\Translator|null
+     * @var Translator|null
      */
     private $translator;
 
@@ -36,7 +36,7 @@ class Form extends Base
      *
      * @return string
      */
-    public function generateElementId(Element $element)
+    public function generateElementId(Element $element) : string
     {
         preg_match('/^([a-zA-Z0-9]*)/', $element->getName(), $matches);
         $name = $matches[0];
@@ -51,7 +51,7 @@ class Form extends Base
     /**
      * @return string
      */
-    public function getId()
+    public function getId() : string
     {
         $tag = $this->getTag();
 
@@ -65,7 +65,7 @@ class Form extends Base
     /**
      * @return string
      */
-    private function generateUid()
+    private function generateUid() : string
     {
         preg_match('/^0\.([0-9]+) ([0-9]+)$/', microtime(), $matches);
 
@@ -73,9 +73,9 @@ class Form extends Base
     }
 
     /**
-     * @return \Brick\Html\Tag
+     * @return Tag
      */
-    private function getTag()
+    private function getTag() : Tag
     {
         if ($this->tag === null) {
             $this->tag = new Tag('form');
@@ -92,7 +92,7 @@ class Form extends Base
      *
      * @throws \RuntimeException
      */
-    private function addComponent($name, Component $component)
+    private function addComponent(string $name, Component $component) : Component
     {
         if (isset($this->components[$name])) {
             throw new \RuntimeException(sprintf('Duplicate component name "%s"', $name));
@@ -106,7 +106,7 @@ class Form extends Base
     /**
      * @return \Brick\Form\Component[]
      */
-    public function getComponents()
+    public function getComponents() : array
     {
         return $this->components;
     }
@@ -114,11 +114,11 @@ class Form extends Base
     /**
      * @param string $name
      *
-     * @return \Brick\Form\Component
+     * @return Component
      *
      * @throws \RuntimeException
      */
-    public function getComponent($name)
+    public function getComponent(string $name) : Component
     {
         if (isset($this->components[$name])) {
             return $this->components[$name];
@@ -132,7 +132,7 @@ class Form extends Base
      *
      * @return Element\Button\Button
      */
-    public function addButtonButton($name)
+    public function addButtonButton(string $name) : Element\Button\Button
     {
         return $this->addComponent($name, new Element\Button\Button($this, $name));
     }
@@ -142,7 +142,7 @@ class Form extends Base
      *
      * @return Element\Button\Reset
      */
-    public function addButtonReset($name)
+    public function addButtonReset(string $name) : Element\Button\Reset
     {
         return $this->addComponent($name, new Element\Button\Reset($this, $name));
     }
@@ -152,7 +152,7 @@ class Form extends Base
      *
      * @return Element\Button\Submit
      */
-    public function addButtonSubmit($name)
+    public function addButtonSubmit(string $name) : Element\Button\Submit
     {
         return $this->addComponent($name, new Element\Button\Submit($this, $name));
     }
@@ -162,7 +162,7 @@ class Form extends Base
      *
      * @return Element\Input\Button
      */
-    public function addInputButton($name)
+    public function addInputButton(string $name) : Element\Input\Button
     {
         return $this->addComponent($name, new Element\Input\Button($this, $name));
     }
@@ -172,7 +172,7 @@ class Form extends Base
      *
      * @return Element\Input\Checkbox
      */
-    public function addInputCheckbox($name)
+    public function addInputCheckbox(string $name) : Element\Input\Checkbox
     {
         return $this->addComponent($name, new Element\Input\Checkbox($this, $name));
     }
@@ -182,7 +182,7 @@ class Form extends Base
      *
      * @return Element\Input\Color
      */
-    public function addInputColor($name)
+    public function addInputColor(string $name) : Element\Input\Color
     {
         return $this->addComponent($name, new Element\Input\Color($this, $name));
     }
@@ -192,7 +192,7 @@ class Form extends Base
      *
      * @return Element\Input\Date
      */
-    public function addInputDate($name)
+    public function addInputDate(string $name) : Element\Input\Date
     {
         return $this->addComponent($name, new Element\Input\Date($this, $name));
     }
@@ -202,7 +202,7 @@ class Form extends Base
      *
      * @return Element\Input\DateTime
      */
-    public function addInputDateTime($name)
+    public function addInputDateTime(string $name) : Element\Input\DateTime
     {
         return $this->addComponent($name, new Element\Input\DateTime($this, $name));
     }
@@ -212,7 +212,7 @@ class Form extends Base
      *
      * @return Element\Input\DateTimeLocal
      */
-    public function addInputDateTimeLocal($name)
+    public function addInputDateTimeLocal(string $name) : Element\Input\DateTimeLocal
     {
         return $this->addComponent($name, new Element\Input\DateTimeLocal($this, $name));
     }
@@ -222,7 +222,7 @@ class Form extends Base
      *
      * @return Element\Input\Email
      */
-    public function addInputEmail($name)
+    public function addInputEmail(string $name) : Element\Input\Email
     {
         return $this->addComponent($name, new Element\Input\Email($this, $name));
     }
@@ -232,7 +232,7 @@ class Form extends Base
      *
      * @return Element\Input\File
      */
-    public function addInputFile($name)
+    public function addInputFile(string $name) : Element\Input\File
     {
         $this->setEnctypeMultipart();
 
@@ -244,7 +244,7 @@ class Form extends Base
      *
      * @return Element\Input\Hidden
      */
-    public function addInputHidden($name)
+    public function addInputHidden(string $name) : Element\Input\Hidden
     {
         return $this->addComponent($name, new Element\Input\Hidden($this, $name));
     }
@@ -254,7 +254,7 @@ class Form extends Base
      *
      * @return Element\Input\Image
      */
-    public function addInputImage($name)
+    public function addInputImage(string $name) : Element\Input\Image
     {
         return $this->addComponent($name, new Element\Input\Image($this, $name));
     }
@@ -264,7 +264,7 @@ class Form extends Base
      *
      * @return Element\Input\Month
      */
-    public function addInputMonth($name)
+    public function addInputMonth(string $name) : Element\Input\Month
     {
         return $this->addComponent($name, new Element\Input\Month($this, $name));
     }
@@ -274,7 +274,7 @@ class Form extends Base
      *
      * @return Element\Input\Number
      */
-    public function addInputNumber($name)
+    public function addInputNumber(string $name) : Element\Input\Number
     {
         return $this->addComponent($name, new Element\Input\Number($this, $name));
     }
@@ -284,7 +284,7 @@ class Form extends Base
      *
      * @return Element\Input\Password
      */
-    public function addInputPassword($name)
+    public function addInputPassword(string $name) : Element\Input\Password
     {
         return $this->addComponent($name, new Element\Input\Password($this, $name));
     }
@@ -294,7 +294,7 @@ class Form extends Base
      *
      * @return Element\Input\Radio
      */
-    public function addInputRadio($name)
+    public function addInputRadio(string $name) : Element\Input\Radio
     {
         return $this->addComponent($name, new Element\Input\Radio($this, $name));
     }
@@ -304,7 +304,7 @@ class Form extends Base
      *
      * @return Element\Input\Range
      */
-    public function addInputRange($name)
+    public function addInputRange(string $name) : Element\Input\Range
     {
         return $this->addComponent($name, new Element\Input\Range($this, $name));
     }
@@ -314,7 +314,7 @@ class Form extends Base
      *
      * @return Element\Input\Reset
      */
-    public function addInputReset($name)
+    public function addInputReset(string $name) : Element\Input\Reset
     {
         return $this->addComponent($name, new Element\Input\Reset($this, $name));
     }
@@ -324,7 +324,7 @@ class Form extends Base
      *
      * @return Element\Input\Search
      */
-    public function addInputSearch($name)
+    public function addInputSearch(string $name) : Element\Input\Search
     {
         return $this->addComponent($name, new Element\Input\Search($this, $name));
     }
@@ -334,7 +334,7 @@ class Form extends Base
      *
      * @return Element\Input\Submit
      */
-    public function addInputSubmit($name)
+    public function addInputSubmit(string $name) : Element\Input\Submit
     {
         return $this->addComponent($name, new Element\Input\Submit($this, $name));
     }
@@ -344,7 +344,7 @@ class Form extends Base
      *
      * @return Element\Input\Tel
      */
-    public function addInputTel($name)
+    public function addInputTel(string $name) : Element\Input\Tel
     {
         return $this->addComponent($name, new Element\Input\Tel($this, $name));
     }
@@ -354,7 +354,7 @@ class Form extends Base
      *
      * @return Element\Input\Text
      */
-    public function addInputText($name)
+    public function addInputText(string $name) : Element\Input\Text
     {
         return $this->addComponent($name, new Element\Input\Text($this, $name));
     }
@@ -364,7 +364,7 @@ class Form extends Base
      *
      * @return Element\Input\Time
      */
-    public function addInputTime($name)
+    public function addInputTime(string $name) : Element\Input\Time
     {
         return $this->addComponent($name, new Element\Input\Time($this, $name));
     }
@@ -374,7 +374,7 @@ class Form extends Base
      *
      * @return Element\Input\Url
      */
-    public function addInputUrl($name)
+    public function addInputUrl(string $name) : Element\Input\Url
     {
         return $this->addComponent($name, new Element\Input\Url($this, $name));
     }
@@ -384,7 +384,7 @@ class Form extends Base
      *
      * @return Element\Input\Week
      */
-    public function addInputWeek($name)
+    public function addInputWeek(string $name) : Element\Input\Week
     {
         return $this->addComponent($name, new Element\Input\Week($this, $name));
     }
@@ -394,7 +394,7 @@ class Form extends Base
      *
      * @return Element\Select\SingleSelect
      */
-    public function addSingleSelect($name)
+    public function addSingleSelect(string $name) : Element\Select\SingleSelect
     {
         return $this->addComponent($name, new Element\Select\SingleSelect($this, $name));
     }
@@ -404,7 +404,7 @@ class Form extends Base
      *
      * @return Element\Select\MultipleSelect
      */
-    public function addMultipleSelect($name)
+    public function addMultipleSelect(string $name) : Element\Select\MultipleSelect
     {
         return $this->addComponent($name, new Element\Select\MultipleSelect($this, $name . '[]'));
     }
@@ -414,7 +414,7 @@ class Form extends Base
      *
      * @return Element\Textarea
      */
-    public function addTextarea($name)
+    public function addTextarea(string $name) : Element\Textarea
     {
         return $this->addComponent($name, new Element\Textarea($this, $name));
     }
@@ -424,7 +424,7 @@ class Form extends Base
      *
      * @return Group\CheckboxGroup
      */
-    public function addCheckboxGroup($name)
+    public function addCheckboxGroup(string $name) : Group\CheckboxGroup
     {
         return $this->addComponent($name, new Group\CheckboxGroup($this, $name));
     }
@@ -434,7 +434,7 @@ class Form extends Base
      *
      * @return Group\RadioGroup
      */
-    public function addRadioGroup($name)
+    public function addRadioGroup(string $name) : Group\RadioGroup
     {
         return $this->addComponent($name, new Group\RadioGroup($this, $name));
     }
@@ -444,7 +444,7 @@ class Form extends Base
      *
      * @return Group\InputGroup
      */
-    public function addInputGroup($name)
+    public function addInputGroup(string $name) : Group\InputGroup
     {
         return $this->addComponent($name, new Group\InputGroup($this, $name));
     }
@@ -452,9 +452,9 @@ class Form extends Base
     /**
      * @param string $action
      *
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function setAction($action)
+    public function setAction(string $action) : Form
     {
         $this->getTag()->setAttribute('action', $action);
 
@@ -464,15 +464,15 @@ class Form extends Base
     /**
      * @return string|null
      */
-    public function getAction()
+    public function getAction() : ?string
     {
         return $this->getTag()->getAttribute('action');
     }
 
     /**
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function setMethodGet()
+    public function setMethodGet() : Form
     {
         $this->getTag()->setAttribute('method', 'get');
 
@@ -480,9 +480,9 @@ class Form extends Base
     }
 
     /**
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function setMethodPost()
+    public function setMethodPost() : Form
     {
         $this->getTag()->setAttribute('method', 'post');
 
@@ -492,7 +492,7 @@ class Form extends Base
     /**
      * @return string|null
      */
-    public function getMethod()
+    public function getMethod() : ?string
     {
         return $this->getTag()->getAttribute('method');
     }
@@ -500,9 +500,9 @@ class Form extends Base
     /**
      * Returns whether the form method is get. This is the default if no method is set.
      *
-     * @return boolean
+     * @return bool
      */
-    public function isMethodGet()
+    public function isMethodGet() : bool
     {
         return ! $this->isMethodPost();
     }
@@ -510,17 +510,17 @@ class Form extends Base
     /**
      * Returns whether the form method is post.
      *
-     * @return boolean
+     * @return bool
      */
-    public function isMethodPost()
+    public function isMethodPost() : bool
     {
-        return $this->getMethod() == 'post';
+        return $this->getMethod() === 'post';
     }
 
     /**
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function setEnctypeUrlencoded()
+    public function setEnctypeUrlencoded() : Form
     {
         $this->getTag()->setAttribute('enctype', 'application/x-www-form-urlencoded');
 
@@ -528,9 +528,9 @@ class Form extends Base
     }
 
     /**
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function setEnctypeMultipart()
+    public function setEnctypeMultipart() : Form
     {
         $this->getTag()->setAttribute('enctype', 'multipart/form-data');
 
@@ -538,9 +538,9 @@ class Form extends Base
     }
 
     /**
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function setEnctypeTextPlain()
+    public function setEnctypeTextPlain() : Form
     {
         $this->getTag()->setAttribute('enctype', 'text/plain');
 
@@ -550,7 +550,7 @@ class Form extends Base
     /**
      * @return string|null
      */
-    public function getEnctype()
+    public function getEnctype() : ?string
     {
         return $this->getTag()->getAttribute('enctype');
     }
@@ -561,9 +561,9 @@ class Form extends Base
      * @param string $name
      * @param string $value
      *
-     * @return static
+     * @return Form
      */
-    public function setAttribute($name, $value)
+    public function setAttribute(string $name, string $value) : Form
     {
         $this->getTag()->setAttribute($name, $value);
 
@@ -573,9 +573,9 @@ class Form extends Base
     /**
      * @param array $attributes
      *
-     * @return static
+     * @return Form
      */
-    public function setAttributes(array $attributes)
+    public function setAttributes(array $attributes) : Form
     {
         $this->getTag()->setAttributes($attributes);
 
@@ -587,7 +587,7 @@ class Form extends Base
      *
      * @return string
      */
-    public function open()
+    public function open() : string
     {
         return $this->getTag()->renderOpeningTag();
     }
@@ -597,7 +597,7 @@ class Form extends Base
      *
      * @return string
      */
-    public function close()
+    public function close() : string
     {
         return $this->getTag()->renderClosingTag();
     }
@@ -607,9 +607,9 @@ class Form extends Base
      *
      * @param array $data
      *
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function populate(array $data)
+    public function populate(array $data) : Form
     {
         $this->resetErrors();
 
@@ -624,11 +624,11 @@ class Form extends Base
     /**
      * Populates the form with the request data.
      *
-     * @param \Brick\Http\Request $request
+     * @param Request $request
      *
-     * @return \Brick\Form\Form
+     * @return Form
      */
-    public function populateFromRequest(Request $request)
+    public function populateFromRequest(Request $request) : Form
     {
         return $this->populate(
             $this->isMethodPost()
@@ -645,16 +645,16 @@ class Form extends Base
      *
      * @return void
      */
-    protected function validate()
+    protected function validate() : void
     {
     }
 
     /**
      * Returns whether the form is valid.
      *
-     * @return boolean
+     * @return bool
      */
-    public function isValid()
+    public function isValid() : bool
     {
         $this->validate();
 
@@ -674,7 +674,7 @@ class Form extends Base
     /**
      * @return array
      */
-    public function getValues()
+    public function getValues() : array
     {
         $values = [];
 
@@ -690,7 +690,7 @@ class Form extends Base
      *
      * @return string[]
      */
-    public function getAllErrors()
+    public function getAllErrors() : array
     {
         $errors = $this->getErrors();
 
@@ -704,7 +704,7 @@ class Form extends Base
     /**
      * @return Translator|null
      */
-    public function getTranslator()
+    public function getTranslator() : ?Translator
     {
         return $this->translator;
     }
@@ -714,7 +714,7 @@ class Form extends Base
      *
      * @return Form
      */
-    public function setTranslator(Translator $translator)
+    public function setTranslator(Translator $translator) : Form
     {
         $this->translator = $translator;
 
@@ -722,11 +722,11 @@ class Form extends Base
     }
 
     /**
-     * Returns an un-decorated version of this form.
+     * Returns a non-decorated version of this form.
      *
      * All fields are concatenated in the order they have been registered.
      */
-    public function __toString()
+    public function __toString() : string
     {
         $output = $this->open();
 

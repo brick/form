@@ -12,14 +12,14 @@ class SingleSelect extends Select
     /**
      * @param string $value
      *
-     * @return static
+     * @return SingleSelect
      */
-    public function setValue($value)
+    public function setValue(string $value) : SingleSelect
     {
         $oneSelected = false;
 
         foreach ($this->getOptions() as $option) {
-            $thisSelected = ! $oneSelected && $option->getValue() == $value;
+            $thisSelected = ! $oneSelected && $option->getValue() === $value;
             $oneSelected = $oneSelected || $thisSelected;
             $option->setSelected($thisSelected);
         }
@@ -32,7 +32,7 @@ class SingleSelect extends Select
      *
      * @return string|null
      */
-    public function getValue()
+    public function getValue() : ?string
     {
         foreach ($this->getOptions() as $option) {
             if ($option->isSelected()) {
@@ -46,7 +46,7 @@ class SingleSelect extends Select
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }

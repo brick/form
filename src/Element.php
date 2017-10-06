@@ -1,6 +1,7 @@
 <?php
 
 namespace Brick\Form;
+use Brick\Html\Tag;
 
 /**
  * Base class for form elements.
@@ -8,14 +9,14 @@ namespace Brick\Form;
 abstract class Element extends Component
 {
     /**
-     * @var \Brick\Form\Label|null
+     * @var Label|null
      */
     private $label;
 
     /**
      * @return string
      */
-    public function getId()
+    public function getId() : string
     {
         $tag = $this->getTag();
 
@@ -32,7 +33,7 @@ abstract class Element extends Component
      *
      * {@inheritdoc}
      */
-    public function setRequired($required)
+    public function setRequired(bool $required) : Component
     {
         if ($required) {
             $this->getTag()->setAttribute('required', 'required');
@@ -44,11 +45,11 @@ abstract class Element extends Component
     }
 
     /**
-     * @param boolean $disabled
+     * @param bool $disabled
      *
      * @return static
      */
-    public function setDisabled($disabled)
+    public function setDisabled(bool $disabled) : Element
     {
         if ($disabled) {
             $this->getTag()->setAttribute('disabled', 'disabled');
@@ -60,9 +61,9 @@ abstract class Element extends Component
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function isDisabled()
+    public function isDisabled() : bool
     {
         return $this->getTag()->hasAttribute('disabled');
     }
@@ -70,7 +71,7 @@ abstract class Element extends Component
     /**
      * {@inheritdoc}
      */
-    protected function setName($name)
+    protected function setName(string $name) : void
     {
         $this->getTag()->setAttribute('name', $name);
     }
@@ -78,7 +79,7 @@ abstract class Element extends Component
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->getTag()->getAttribute('name');
     }
@@ -91,7 +92,7 @@ abstract class Element extends Component
      *
      * @return static
      */
-    public function setAttribute($name, $value)
+    public function setAttribute(string $name, string $value) : Element
     {
         $this->getTag()->setAttribute($name, $value);
 
@@ -99,9 +100,9 @@ abstract class Element extends Component
     }
 
     /**
-     * @return \Brick\Form\Label
+     * @return Label
      */
-    public function getLabel()
+    public function getLabel() : Label
     {
         if ($this->label === null) {
             $this->label = new Label($this);
@@ -117,7 +118,7 @@ abstract class Element extends Component
      *
      * @return static
      */
-    public function setLabel($label)
+    public function setLabel(string $label) : Element
     {
         $this->getLabel()->setTextContent($label);
 
@@ -127,9 +128,9 @@ abstract class Element extends Component
     /**
      * Returns the HTML tag of this element.
      *
-     * @return \Brick\Html\Tag
+     * @return Tag
      */
-    abstract protected function getTag();
+    abstract protected function getTag() : Tag;
 
     /**
      * Renders the element.
@@ -138,7 +139,7 @@ abstract class Element extends Component
      *
      * @return string
      */
-    public function render()
+    public function render() : string
     {
         $this->getId();
         $this->onBeforeRender();
@@ -151,7 +152,7 @@ abstract class Element extends Component
      *
      * @return void
      */
-    protected function onBeforeRender()
+    protected function onBeforeRender() : void
     {
     }
 
@@ -160,7 +161,7 @@ abstract class Element extends Component
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return $this->render();
     }

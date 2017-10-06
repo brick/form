@@ -3,6 +3,7 @@
 namespace Brick\Form;
 
 use Brick\Form\Filter\Filter;
+use Brick\Translation\Translator;
 use Brick\Validation\Validator;
 
 /**
@@ -13,27 +14,27 @@ abstract class Component extends Base
     /**
      * The owning form.
      *
-     * @var \Brick\Form\Form
+     * @var Form
      */
     protected $form;
 
     /**
-     * @var \Brick\Translation\Translator|null
+     * @var Translator|null
      */
     protected $translator = null;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $required = false;
 
     /**
-     * @var \Brick\Form\Filter\Filter[]
+     * @var Filter[]
      */
     private $filters = [];
 
     /**
-     * @var \Brick\Validation\Validator[]
+     * @var Validator[]
      */
     private $validators = [];
 
@@ -43,7 +44,7 @@ abstract class Component extends Base
      * @param Form   $form
      * @param string $name
      */
-    public function __construct(Form $form, $name)
+    public function __construct(Form $form, string $name)
     {
         $this->form = $form;
 
@@ -63,7 +64,7 @@ abstract class Component extends Base
      *
      * @throws \InvalidArgumentException If the given value is not of a correct type for this component.
      */
-    public function populate($value)
+    public function populate($value) : void
     {
         $isArray = $this->isArray();
 
@@ -99,21 +100,21 @@ abstract class Component extends Base
     }
 
     /**
-     * @param boolean $required
+     * @param bool $required
      *
      * @return static
      */
-    public function setRequired($required)
+    public function setRequired(bool $required) : Component
     {
-        $this->required = (bool) $required;
+        $this->required = $required;
 
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function isRequired()
+    public function isRequired() : bool
     {
         return $this->required;
     }
@@ -124,7 +125,7 @@ abstract class Component extends Base
      *
      * @return void
      */
-    private function addTranslatableError($messageKey, $defaultMessage)
+    private function addTranslatableError(string $messageKey, string $defaultMessage) : void
     {
         $translator = $this->form->getTranslator();
 
@@ -143,7 +144,7 @@ abstract class Component extends Base
      *
      * @return string
      */
-    private function filter($value)
+    private function filter(string $value) : string
     {
         foreach ($this->filters as $filter) {
             $value = $filter->filter($value);
@@ -157,7 +158,7 @@ abstract class Component extends Base
      *
      * @return void
      */
-    private function validate($value)
+    private function validate(string $value) : void
     {
         foreach ($this->validators as $validator) {
             if (! $validator->isValid($value)) {
@@ -175,11 +176,11 @@ abstract class Component extends Base
      *
      * Adding twice the same instance of a filter has no effect.
      *
-     * @param \Brick\Form\Filter\Filter $filter
+     * @param Filter $filter
      *
      * @return static
      */
-    public function addFilter(Filter $filter)
+    public function addFilter(Filter $filter) : Component
     {
         $hash = spl_object_hash($filter);
         $this->filters[$hash] = $filter;
@@ -190,11 +191,11 @@ abstract class Component extends Base
     /**
      * Checks whether a filter is present.
      *
-     * @param \Brick\Form\Filter\Filter $filter
+     * @param Filter $filter
      *
-     * @return boolean
+     * @return bool
      */
-    protected function hasFilter(Filter $filter)
+    protected function hasFilter(Filter $filter) : bool
     {
         $hash = spl_object_hash($filter);
 
@@ -206,11 +207,11 @@ abstract class Component extends Base
      *
      * Removing a non-existent filter has no effect.
      *
-     * @param \Brick\Form\Filter\Filter $filter
+     * @param Filter $filter
      *
      * @return static
      */
-    protected function removeFilter(Filter $filter)
+    protected function removeFilter(Filter $filter) : Component
     {
         $hash = spl_object_hash($filter);
         unset($this->filters[$hash]);
@@ -225,7 +226,7 @@ abstract class Component extends Base
      *
      * @return static
      */
-    protected function removeFilters($className)
+    protected function removeFilters(string $className) : Component
     {
         foreach ($this->filters as $key => $filter) {
             if ($filter instanceof $className) {
@@ -243,11 +244,11 @@ abstract class Component extends Base
      *
      * Adding twice the same instance of a validator has no effect.
      *
-     * @param \Brick\Validation\Validator $validator
+     * @param Validator $validator
      *
      * @return static
      */
-    public function addValidator(Validator $validator)
+    public function addValidator(Validator $validator) : Component
     {
         $hash = spl_object_hash($validator);
         $this->validators[$hash] = $validator;
@@ -258,11 +259,11 @@ abstract class Component extends Base
     /**
      * Checks whether a validator is present.
      *
-     * @param \Brick\Validation\Validator $validator
+     * @param Validator $validator
      *
-     * @return boolean
+     * @return bool
      */
-    protected function hasValidator(Validator $validator)
+    protected function hasValidator(Validator $validator) : bool
     {
         $hash = spl_object_hash($validator);
 
@@ -274,11 +275,11 @@ abstract class Component extends Base
      *
      * Removing a non-existent validator has no effect.
      *
-     * @param \Brick\Validation\Validator $validator
+     * @param Validator $validator
      *
      * @return static
      */
-    protected function removeValidator(Validator $validator)
+    protected function removeValidator(Validator $validator) : Component
     {
         $hash = spl_object_hash($validator);
         unset($this->validators[$hash]);
@@ -293,7 +294,7 @@ abstract class Component extends Base
      *
      * @return static
      */
-    protected function removeValidators($className)
+    protected function removeValidators(string $className) : Component
     {
         foreach ($this->validators as $key => $validator) {
             if ($validator instanceof $className) {
@@ -311,7 +312,7 @@ abstract class Component extends Base
      *
      * @return void
      */
-    protected function init()
+    protected function init() : void
     {
     }
 
@@ -324,7 +325,7 @@ abstract class Component extends Base
      *
      * @return void
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
     }
 
@@ -335,7 +336,7 @@ abstract class Component extends Base
      *
      * @return bool True if the component expects an array, false if it expects a string.
      */
-    protected function isArray()
+    protected function isArray() : bool
     {
         return false;
     }
@@ -347,14 +348,14 @@ abstract class Component extends Base
      *
      * @return void
      */
-    abstract protected function setName($name);
+    abstract protected function setName(string $name) : void;
 
     /**
      * Returns the name of the component, that will be posted in the form data.
      *
      * @return string
      */
-    abstract public function getName();
+    abstract public function getName() : string;
 
     /**
      * @return string|array|null
@@ -364,5 +365,5 @@ abstract class Component extends Base
     /**
      * @return string
      */
-    abstract public function __toString();
+    abstract public function __toString() : string;
 }

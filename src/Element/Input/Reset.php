@@ -15,7 +15,7 @@ class Reset extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'reset';
     }

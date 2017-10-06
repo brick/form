@@ -5,6 +5,7 @@ namespace Brick\Form\Element;
 use Brick\Form\Element;
 use Brick\Form\Element\Select\Option\Option;
 use Brick\Form\Element\Select\Option\OptionGroup;
+use Brick\Form\Element\Select\Option\OptionOrGroup;
 use Brick\Html\Tag;
 
 /**
@@ -13,21 +14,21 @@ use Brick\Html\Tag;
 abstract class Select extends Element
 {
     /**
-     * @var \Brick\Html\Tag|null
+     * @var Tag|null
      */
     private $tag = null;
 
     /**
      * The options and option groups in this Select.
      *
-     * @var \Brick\Form\Element\Select\Option\OptionOrGroup[]
+     * @var OptionOrGroup[]
      */
     protected $elements = [];
 
     /**
      * {@inheritdoc}
      */
-    protected function getTag()
+    protected function getTag() : Tag
     {
         if ($this->tag === null) {
             $this->tag = new Tag('select');
@@ -44,9 +45,9 @@ abstract class Select extends Element
      * @param string $content The text content of this option.
      * @param string $value   The value of this option.
      *
-     * @return \Brick\Form\Element\Select\Option\Option
+     * @return Option
      */
-    public function addOption($content, $value)
+    public function addOption(string $content, string $value) : Option
     {
         $option = new Option($content, $value);
         $this->elements[] = $option;
@@ -57,13 +58,13 @@ abstract class Select extends Element
     /**
      * Adds a batch of options to this Select.
      *
-     * The array format is [value] => content.
+     * The array format is [value] => text content.
      *
      * @param array $options
      *
      * @return static
      */
-    public function addOptions(array $options)
+    public function addOptions(array $options) : Select
     {
         foreach ($options as $value => $content) {
             $this->addOption($content, $value);
@@ -75,11 +76,11 @@ abstract class Select extends Element
     /**
      * @param string $label The option group label.
      *
-     * @return \Brick\Form\Element\Select\Option\OptionGroup
+     * @return OptionGroup
      */
-    public function addOptionGroup($label)
+    public function addOptionGroup(string $label) : OptionGroup
     {
-        $optionGroup = new Select\Option\OptionGroup($label);
+        $optionGroup = new OptionGroup($label);
         $this->elements[] = $optionGroup;
 
         return $optionGroup;
@@ -88,9 +89,9 @@ abstract class Select extends Element
     /**
      * Returns all the options in this Select, including the ones nested in option groups.
      *
-     * @return \Brick\Form\Element\Select\Option\Option[]
+     * @return Option[]
      */
-    protected function getOptions()
+    protected function getOptions() : array
     {
         $options = [];
 
@@ -109,7 +110,7 @@ abstract class Select extends Element
     /**
      * {@inheritdoc}
      */
-    protected function onBeforeRender()
+    protected function onBeforeRender() : void
     {
         $content = '';
 

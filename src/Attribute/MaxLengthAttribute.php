@@ -16,7 +16,7 @@ trait MaxLengthAttribute
      *
      * @return static
      */
-    public function setMaxLength($maxLength)
+    public function setMaxLength(string $maxLength)
     {
         $this->getTag()->setAttribute('maxlength', $maxLength);
         $this->removeValidators(StringValidator::class);

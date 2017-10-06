@@ -14,7 +14,7 @@ trait FormAttributes
      *
      * @return static
      */
-    public function setFormAction($action)
+    public function setFormAction(string $action)
     {
         $this->getTag()->setAttribute('formaction', $action);
 
@@ -26,7 +26,7 @@ trait FormAttributes
      *
      * @return static
      */
-    public function setFormEnctype($enctype)
+    public function setFormEnctype(string $enctype)
     {
         $this->getTag()->setAttribute('formenctype', $enctype);
 
@@ -38,7 +38,7 @@ trait FormAttributes
      *
      * @return static
      */
-    public function setFormMethod($method)
+    public function setFormMethod(string $method)
     {
         $this->getTag()->setAttribute('formmethod', $method);
 
@@ -50,7 +50,7 @@ trait FormAttributes
      *
      * @return static
      */
-    public function setFormNoValidate($novalidate)
+    public function setFormNoValidate(string $novalidate)
     {
         $this->getTag()->setAttribute('formnovalidate', $novalidate);
 
@@ -62,7 +62,7 @@ trait FormAttributes
      *
      * @return static
      */
-    public function setFormTarget($target)
+    public function setFormTarget(string $target)
     {
         $this->getTag()->setAttribute('formtarget', $target);
 
@@ -72,7 +72,7 @@ trait FormAttributes
     /**
      * @return string|null
      */
-    public function getFormAction()
+    public function getFormAction() : ?string
     {
         return $this->getTag()->getAttribute('formaction');
     }
@@ -80,7 +80,7 @@ trait FormAttributes
     /**
      * @return string|null
      */
-    public function getFormEnctype()
+    public function getFormEnctype() : ?string
     {
         return $this->getTag()->getAttribute('formenctype');
     }
@@ -88,7 +88,7 @@ trait FormAttributes
     /**
      * @return string|null
      */
-    public function getFormMethod()
+    public function getFormMethod() : ?string
     {
         return $this->getTag()->getAttribute('formmethod');
     }
@@ -96,7 +96,7 @@ trait FormAttributes
     /**
      * @return string|null
      */
-    public function getFormNoValidate()
+    public function getFormNoValidate() : ?string
     {
         return $this->getTag()->getAttribute('formnovalidate');
     }
@@ -104,7 +104,7 @@ trait FormAttributes
     /**
      * @return string|null
      */
-    public function getFormTarget()
+    public function getFormTarget() : ?string
     {
         return $this->getTag()->getAttribute('formtarget');
     }

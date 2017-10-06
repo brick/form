@@ -12,14 +12,14 @@ class OptionGroup extends OptionOrGroup
     /**
      * The HTML tag used to render this OptionGroup.
      *
-     * @var \Brick\Html\Tag
+     * @var Tag
      */
     private $tag;
 
     /**
      * The options inside this OptionGroup.
      *
-     * @var \Brick\Form\Element\Select\Option\Option[]
+     * @var Option[]
      */
     private $options = [];
 
@@ -28,7 +28,7 @@ class OptionGroup extends OptionOrGroup
      *
      * @param string $label The option group label.
      */
-    public function __construct($label)
+    public function __construct(string $label)
     {
         $this->tag = new Tag('optgroup', [
             'label' => $label
@@ -43,7 +43,7 @@ class OptionGroup extends OptionOrGroup
      *
      * @return static
      */
-    public function addOption($content, $value)
+    public function addOption(string $content, string $value)
     {
         $this->options[] = new Option($content, $value);
 
@@ -55,9 +55,9 @@ class OptionGroup extends OptionOrGroup
      *
      * @param array $options The options as key-value pairs.
      *
-     * @return static
+     * @return OptionGroup
      */
-    public function addOptions(array $options)
+    public function addOptions(array $options) : OptionGroup
     {
         foreach ($options as $value => $content) {
             $this->addOption($content, $value);
@@ -69,9 +69,9 @@ class OptionGroup extends OptionOrGroup
     /**
      * Returns the options in this OptionGroup.
      *
-     * @return \Brick\Form\Element\Select\Option\Option[]
+     * @return Option[]
      */
-    public function getOptions()
+    public function getOptions() : array
     {
         return $this->options;
     }
@@ -79,7 +79,7 @@ class OptionGroup extends OptionOrGroup
     /**
      * {@inheritdoc}
      */
-    public function render()
+    public function render() : string
     {
         $content = '';
 

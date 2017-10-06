@@ -10,12 +10,12 @@ use Brick\Html\Tag;
 class Label
 {
     /**
-     * @var \Brick\Form\Element
+     * @var Element
      */
     private $element;
 
     /**
-     * @var \Brick\Html\Tag
+     * @var Tag
      */
     private $tag;
 
@@ -36,9 +36,9 @@ class Label
      * @param string $name
      * @param string $value
      *
-     * @return static
+     * @return Label
      */
-    public function setAttribute($name, $value)
+    public function setAttribute(string $name, string $value) : Label
     {
         $this->tag->setAttribute($name, $value);
 
@@ -50,9 +50,9 @@ class Label
      *
      * @param string $text
      *
-     * @return \Brick\Form\Label
+     * @return Label
      */
-    public function setTextContent($text)
+    public function setTextContent(string $text) : Label
     {
         $this->tag->setTextContent($text);
 
@@ -64,9 +64,9 @@ class Label
      *
      * @param string $html
      *
-     * @return \Brick\Form\Label
+     * @return Label
      */
-    public function setHtmlContent($html)
+    public function setHtmlContent(string $html) : Label
     {
         $this->tag->setHtmlContent($html);
 
@@ -76,7 +76,7 @@ class Label
     /**
      * @return bool
      */
-    public function isEmpty()
+    public function isEmpty() : bool
     {
         return $this->tag->isEmpty();
     }
@@ -86,7 +86,7 @@ class Label
      *
      * @return string
      */
-    public function render()
+    public function render() : string
     {
         return $this->tag->setAttribute('for', $this->element->getId())->render();
     }
@@ -96,7 +96,7 @@ class Label
      *
      * @return string
      */
-    public function open()
+    public function open() : string
     {
         return $this->tag->renderOpeningTag();
     }
@@ -106,7 +106,7 @@ class Label
      *
      * @return string
      */
-    public function close()
+    public function close() : string
     {
         return $this->tag->renderClosingTag();
     }
@@ -116,7 +116,7 @@ class Label
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return $this->render();
     }

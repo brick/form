@@ -10,11 +10,11 @@ trait CheckedAttribute
     use AbstractTag;
 
     /**
-     * @param boolean $checked
+     * @param bool $checked
      *
      * @return static
      */
-    public function setChecked($checked)
+    public function setChecked(bool $checked)
     {
         if ($checked) {
             $this->getTag()->setAttribute('checked', 'checked');
@@ -26,9 +26,9 @@ trait CheckedAttribute
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function isChecked()
+    public function isChecked() : bool
     {
         return $this->getTag()->hasAttribute('checked');
     }

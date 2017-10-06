@@ -2,6 +2,7 @@
 
 namespace Brick\Form\Group;
 
+use Brick\Form\Component;
 use Brick\Form\Group;
 use Brick\Form\Element\Input\Radio;
 
@@ -13,16 +14,16 @@ class RadioGroup extends Group
     /**
      * The radio buttons in the group.
      *
-     * @var \Brick\Form\Element\Input\Radio[]
+     * @var Radio[]
      */
     private $radios = [];
 
     /**
      * Adds a radio button in this group and returns it.
      *
-     * @return \Brick\Form\Element\Input\Radio
+     * @return Radio
      */
-    public function addRadio()
+    public function addRadio() : Radio
     {
         $radio = new Radio($this->form, $this->name);
         $radio->setRequired($this->isRequired());
@@ -34,7 +35,7 @@ class RadioGroup extends Group
     /**
      * @inheritdoc
      */
-    public function setRequired($required)
+    public function setRequired(bool $required) : Component
     {
         foreach ($this->radios as $radio) {
             $radio->setRequired($required);
@@ -46,9 +47,9 @@ class RadioGroup extends Group
     /**
      * @param string $value
      *
-     * @return static
+     * @return RadioGroup
      */
-    public function setValue($value)
+    public function setValue(string $value) : RadioGroup
     {
         foreach ($this->radios as $radioButton) {
             $radioButton->setChecked($radioButton->getValue() === $value);
@@ -60,7 +61,7 @@ class RadioGroup extends Group
     /**
      * @return string|null
      */
-    public function getValue()
+    public function getValue() : ?string
     {
         foreach ($this->radios as $radioButton) {
             if ($radioButton->isChecked()) {
@@ -72,9 +73,9 @@ class RadioGroup extends Group
     }
 
     /**
-     * @return \Brick\Form\Element\Input\Radio[]
+     * @return Radio[]
      */
-    public function getElements()
+    public function getElements() : array
     {
         return $this->radios;
     }
@@ -82,7 +83,7 @@ class RadioGroup extends Group
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }

@@ -10,12 +10,12 @@ class NewLineFilter implements Filter
     /**
      * @var string
      */
-    private $replaceWith = '';
+    private $replaceWith;
 
     /**
      * @param string $replaceWith
      */
-    public function __construct($replaceWith = '')
+    public function __construct(string $replaceWith = '')
     {
         $this->replaceWith = $replaceWith;
     }
@@ -23,7 +23,7 @@ class NewLineFilter implements Filter
     /**
      * {@inheritdoc}
      */
-    public function filter($value)
+    public function filter(string $value) : string
     {
         return str_replace(["\r\n", "\r", "\n"], $this->replaceWith, $value);
     }

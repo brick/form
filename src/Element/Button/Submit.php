@@ -10,7 +10,7 @@ use Brick\Form\Element;
 class Submit extends Element\Button
 {
     /**
-     * @var boolean
+     * @var bool
      */
     private $pressed = false;
 
@@ -19,9 +19,9 @@ class Submit extends Element\Button
      *
      * This is useful for forms with multiple submit buttons.
      *
-     * @return boolean
+     * @return bool
      */
-    public function isPressed()
+    public function isPressed() : bool
     {
         return $this->pressed;
     }
@@ -29,7 +29,7 @@ class Submit extends Element\Button
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->pressed = ($value === $this->getValue());
     }
@@ -37,7 +37,7 @@ class Submit extends Element\Button
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'submit';
     }

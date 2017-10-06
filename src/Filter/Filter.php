@@ -3,7 +3,7 @@
 namespace Brick\Form\Filter;
 
 /**
- * Interface that all filters must implement.
+ * Interface that filters must implement.
  */
 interface Filter
 {
@@ -12,5 +12,5 @@ interface Filter
      *
      * @return string The filtered value.
      */
-    public function filter($value);
+    public function filter(string $value) : string;
 }

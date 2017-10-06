@@ -12,9 +12,9 @@ class MultipleSelect extends Select
     /**
      * @param array $values
      *
-     * @return static
+     * @return MultipleSelect
      */
-    public function setValues(array $values)
+    public function setValues(array $values) : MultipleSelect
     {
         foreach ($this->getOptions() as $option) {
             $option->setSelected(in_array($option->getValue(), $values));
@@ -28,7 +28,7 @@ class MultipleSelect extends Select
      *
      * @return array
      */
-    public function getValues()
+    public function getValues() : array
     {
         $values = [];
 
@@ -52,7 +52,7 @@ class MultipleSelect extends Select
     /**
      * {@inheritdoc}
      */
-    protected function isArray()
+    protected function isArray() : bool
     {
         return true;
     }
@@ -60,7 +60,7 @@ class MultipleSelect extends Select
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValues($value);
     }

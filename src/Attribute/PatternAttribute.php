@@ -16,7 +16,7 @@ trait PatternAttribute
      *
      * @return static
      */
-    public function setPattern($pattern)
+    public function setPattern(string $pattern)
     {
         $this->getTag()->setAttribute('pattern', $pattern);
         $this->removeValidators(PatternValidator::class);

@@ -13,14 +13,14 @@ abstract class Input extends Element
     // @todo autofocus, disabled, form attributes
 
     /**
-     * @var \Brick\Html\Tag|null
+     * @var Tag|null
      */
     private $tag = null;
 
     /**
      * {@inheritdoc}
      */
-    protected function getTag()
+    protected function getTag() : Tag
     {
         if ($this->tag === null) {
             $this->tag = new Tag('input', [
@@ -36,5 +36,5 @@ abstract class Input extends Element
      *
      * @return string
      */
-    abstract protected function getType();
+    abstract protected function getType() : string;
 }

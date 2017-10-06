@@ -10,7 +10,7 @@ class UpperCaseFilter implements Filter
     /**
      * {@inheritdoc}
      */
-    public function filter($value)
+    public function filter(string $value) : string
     {
         return strtoupper($value);
     }

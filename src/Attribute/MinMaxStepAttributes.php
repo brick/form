@@ -14,7 +14,7 @@ trait MinMaxStepAttributes
      *
      * @return static
      */
-    public function setMin($min)
+    public function setMin(string $min)
     {
         $this->doSetMin($min);
         $this->getTag()->setAttribute('min', $min);
@@ -27,7 +27,7 @@ trait MinMaxStepAttributes
      *
      * @return static
      */
-    public function setMax($max)
+    public function setMax(string $max)
     {
         $this->doSetMax($max);
         $this->getTag()->setAttribute('max', $max);
@@ -40,7 +40,7 @@ trait MinMaxStepAttributes
      *
      * @return static
      */
-    public function setStep($step)
+    public function setStep(string $step)
     {
         $this->doSetStep($step);
         $this->getTag()->setAttribute('step', $step);
@@ -51,7 +51,7 @@ trait MinMaxStepAttributes
     /**
      * @return string|null
      */
-    public function getMin()
+    public function getMin() : ?string
     {
         return $this->getTag()->getAttribute('min');
     }
@@ -59,7 +59,7 @@ trait MinMaxStepAttributes
     /**
      * @return string|null
      */
-    public function getMax()
+    public function getMax() : ?string
     {
         return $this->getTag()->getAttribute('max');
     }
@@ -67,7 +67,7 @@ trait MinMaxStepAttributes
     /**
      * @return string|null
      */
-    public function getStep()
+    public function getStep() : ?string
     {
         return $this->getTag()->getAttribute('step');
     }
@@ -79,7 +79,7 @@ trait MinMaxStepAttributes
      *
      * @return void
      */
-    protected function doSetMin($min)
+    protected function doSetMin(string $min) : void
     {
     }
 
@@ -90,7 +90,7 @@ trait MinMaxStepAttributes
      *
      * @return void
      */
-    protected function doSetMax($max)
+    protected function doSetMax(string $max) : void
     {
     }
 
@@ -101,7 +101,7 @@ trait MinMaxStepAttributes
      *
      * @return void
      */
-    protected function doSetStep($step)
+    protected function doSetStep(string $step) : void
     {
     }
 }

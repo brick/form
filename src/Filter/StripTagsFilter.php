@@ -10,7 +10,7 @@ class StripTagsFilter implements Filter
     /**
      * {@inheritdoc}
      */
-    public function filter($value)
+    public function filter(string $value) : string
     {
         return strip_tags($value);
     }

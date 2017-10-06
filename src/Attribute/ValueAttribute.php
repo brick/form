@@ -14,9 +14,9 @@ trait ValueAttribute
      *
      * @return static
      */
-    public function setValue($value)
+    public function setValue(string $value)
     {
-        $this->getTag()->setAttribute('value', (string) $value);
+        $this->getTag()->setAttribute('value', $value);
 
         return $this;
     }
@@ -24,7 +24,7 @@ trait ValueAttribute
     /**
      * @return bool
      */
-    public function hasValue()
+    public function hasValue() : bool
     {
         $value = $this->getTag()->getAttribute('value');
 
@@ -32,6 +32,8 @@ trait ValueAttribute
     }
 
     /**
+     * @todo return type conflicts with Component::getValue()
+     *
      * Returns the value of the input.
      *
      * @return string
@@ -48,7 +50,7 @@ trait ValueAttribute
      *
      * @return string|null
      */
-    public function getValueOrNull()
+    public function getValueOrNull() : ?string
     {
         $value = $this->getTag()->getAttribute('value');
 

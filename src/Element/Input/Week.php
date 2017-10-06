@@ -25,7 +25,7 @@ class Week extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'week';
     }
@@ -33,7 +33,7 @@ class Week extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }

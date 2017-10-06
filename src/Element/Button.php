@@ -14,14 +14,14 @@ abstract class Button extends Element
     use ValueAttribute;
 
     /**
-     * @var \Brick\Html\Tag|null
+     * @var Tag|null
      */
     private $tag = null;
 
     /**
      * {@inheritdoc}
      */
-    protected function getTag()
+    protected function getTag() : Tag
     {
         if ($this->tag === null) {
             $this->tag = new Tag('button', [
@@ -37,7 +37,7 @@ abstract class Button extends Element
      *
      * @return static
      */
-    public function setTextContent($text)
+    public function setTextContent(string $text) : Button
     {
         $this->tag->setTextContent($text);
 
@@ -49,7 +49,7 @@ abstract class Button extends Element
      *
      * @return static
      */
-    public function setHtmlContent($html)
+    public function setHtmlContent(string $html) : Button
     {
         $this->tag->setHtmlContent($html);
 
@@ -61,7 +61,7 @@ abstract class Button extends Element
      *
      * @return string
      */
-    public function open()
+    public function open() : string
     {
         return $this->getTag()->renderOpeningTag();
     }
@@ -71,7 +71,7 @@ abstract class Button extends Element
      *
      * @return string
      */
-    public function close()
+    public function close() : string
     {
         return $this->getTag()->renderClosingTag();
     }
@@ -81,5 +81,5 @@ abstract class Button extends Element
      *
      * @return string
      */
-    abstract protected function getType();
+    abstract protected function getType() : string;
 }

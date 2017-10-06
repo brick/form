@@ -14,7 +14,7 @@ trait AutocompleteAttribute
      *
      * @return static
      */
-    public function setAutocomplete($autocomplete)
+    public function setAutocomplete(string $autocomplete)
     {
         $this->getTag()->setAttribute('autocomplete', $autocomplete);
 

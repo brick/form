@@ -26,7 +26,7 @@ class Date extends Input
     /**
      * {@inheritdoc}
      */
-    protected function init()
+    protected function init() : void
     {
         $this->addValidator(new DateValidator());
     }
@@ -34,7 +34,7 @@ class Date extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'date';
     }
@@ -42,7 +42,7 @@ class Date extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }

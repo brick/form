@@ -15,7 +15,7 @@ class Button extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'button';
     }

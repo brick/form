@@ -15,7 +15,7 @@ class Submit extends Input
     use ValueAttribute;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $pressed = false;
 
@@ -24,9 +24,9 @@ class Submit extends Input
      *
      * This is useful for forms with multiple submit buttons.
      *
-     * @return boolean
+     * @return bool
      */
-    public function isPressed()
+    public function isPressed() : bool
     {
         return $this->pressed;
     }
@@ -34,7 +34,7 @@ class Submit extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->pressed = ($value === $this->getValue());
     }
@@ -42,7 +42,7 @@ class Submit extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'submit';
     }

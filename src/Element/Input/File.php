@@ -18,7 +18,7 @@ class File extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'file';
     }

@@ -12,7 +12,7 @@ class Button extends Element\Button
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'button';
     }

@@ -17,7 +17,7 @@ abstract class Base
      *
      * @return static
      */
-    public function addError($errorMessage)
+    public function addError(string $errorMessage) : Base
     {
         $this->errors[] = $errorMessage;
 
@@ -27,7 +27,7 @@ abstract class Base
     /**
      * @return static
      */
-    public function resetErrors()
+    public function resetErrors() : Base
     {
         $this->errors = [];
 
@@ -37,7 +37,7 @@ abstract class Base
     /**
      * @return bool
      */
-    public function hasErrors()
+    public function hasErrors() : bool
     {
         return count($this->errors) !== 0;
     }
@@ -45,7 +45,7 @@ abstract class Base
     /**
      * @return string[]
      */
-    public function getErrors()
+    public function getErrors() : array
     {
         return $this->errors;
     }

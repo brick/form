@@ -25,7 +25,7 @@ class DateTimeLocal extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'datetime-local';
     }
@@ -33,7 +33,7 @@ class DateTimeLocal extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }

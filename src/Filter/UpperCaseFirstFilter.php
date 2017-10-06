@@ -10,7 +10,7 @@ class UpperCaseFirstFilter implements Filter
     /**
      * {@inheritdoc}
      */
-    public function filter($value)
+    public function filter(string $value) : string
     {
         return ucfirst($value);
     }

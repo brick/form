@@ -10,5 +10,5 @@ abstract class OptionOrGroup
     /**
      * @return string
      */
-    abstract public function render();
+    abstract public function render() : string;
 }

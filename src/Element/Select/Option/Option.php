@@ -10,7 +10,7 @@ use Brick\Html\Tag;
 class Option extends OptionOrGroup
 {
     /**
-     * @var \Brick\Html\Tag
+     * @var Tag
      */
     private $tag;
 
@@ -25,7 +25,7 @@ class Option extends OptionOrGroup
      * @param string $content The text content of this option.
      * @param string $value   The value of this option.
      */
-    public function __construct($content, $value)
+    public function __construct(string $content, string $value)
     {
         $this->tag = new Tag('option', [
             'value' => $value
@@ -37,7 +37,7 @@ class Option extends OptionOrGroup
     /**
      * @return string
      */
-    public function getContent()
+    public function getContent() : string
     {
         return $this->content;
     }
@@ -45,25 +45,25 @@ class Option extends OptionOrGroup
     /**
      * @return string
      */
-    public function getValue()
+    public function getValue() : string
     {
         return $this->tag->getAttribute('value');
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function isSelected()
+    public function isSelected() : bool
     {
         return $this->tag->hasAttribute('selected');
     }
 
     /**
-     * @param boolean $selected Whether to select (true) or unselect (false) this option.
+     * @param bool $selected Whether to select (true) or unselect (false) this option.
      *
-     * @return static
+     * @return Option
      */
-    public function setSelected($selected)
+    public function setSelected(bool $selected) : Option
     {
         if ($selected) {
             $this->tag->setAttribute('selected', 'selected');
@@ -77,7 +77,7 @@ class Option extends OptionOrGroup
     /**
      * {@inheritdoc}
      */
-    public function render()
+    public function render() : string
     {
         return $this->tag->setTextContent($this->content)->render();
     }

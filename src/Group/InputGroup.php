@@ -13,16 +13,16 @@ class InputGroup extends Group
     /**
      * The inputs in the group.
      *
-     * @var \Brick\Form\Element\Input\Text[]
+     * @var Input\Text[]
      */
     private $inputs = [];
 
     /**
      * Adds a text input to this group and returns it.
      *
-     * @return \Brick\Form\Element\Input\Text
+     * @return Input\Text
      */
-    public function addInputText()
+    public function addInputText() : Input\Text
     {
         $input = new Input\Text($this->form, $this->name . '[]');
         $this->inputs[] = $input;
@@ -35,7 +35,7 @@ class InputGroup extends Group
      *
      * @return array
      */
-    public function getValues()
+    public function getValues() : array
     {
         $values = [];
 
@@ -57,7 +57,7 @@ class InputGroup extends Group
     /**
      * @return \Brick\Form\Element\Input\Text[]
      */
-    public function getElements()
+    public function getElements() : array
     {
         return $this->inputs;
     }
@@ -65,7 +65,7 @@ class InputGroup extends Group
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($values)
+    protected function doPopulate($values) : void
     {
         foreach ($values as $key => $value) {
             if (isset($this->inputs[$key])) {
@@ -77,7 +77,7 @@ class InputGroup extends Group
     /**
      * {@inheritdoc}
      */
-    protected function isArray()
+    protected function isArray() : bool
     {
         return true;
     }

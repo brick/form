@@ -13,16 +13,16 @@ class CheckboxGroup extends Group
     /**
      * The checkboxes in the group.
      *
-     * @var \Brick\Form\Element\Input\Checkbox[]
+     * @var Checkbox[]
      */
     private $checkboxes = [];
 
     /**
      * Adds a checkbox to this group and returns it.
      *
-     * @return \Brick\Form\Element\Input\Checkbox
+     * @return Checkbox
      */
-    public function addCheckbox()
+    public function addCheckbox() : Checkbox
     {
         $checkbox = new Checkbox($this->form, $this->name . '[]');
         $this->checkboxes[] = $checkbox;
@@ -33,9 +33,9 @@ class CheckboxGroup extends Group
     /**
      * @param array $values
      *
-     * @return static
+     * @return CheckboxGroup
      */
-    public function setValues(array $values)
+    public function setValues(array $values) : CheckboxGroup
     {
         foreach ($this->checkboxes as $checkbox) {
             $checkbox->setChecked(in_array($checkbox->getValue(), $values, true));
@@ -49,7 +49,7 @@ class CheckboxGroup extends Group
      *
      * @return array
      */
-    public function getValues()
+    public function getValues() : array
     {
         $values = [];
 
@@ -71,9 +71,9 @@ class CheckboxGroup extends Group
     }
 
     /**
-     * @return \Brick\Form\Element\Input\Checkbox[]
+     * @return Checkbox[]
      */
-    public function getElements()
+    public function getElements() : array
     {
         return $this->checkboxes;
     }
@@ -81,7 +81,7 @@ class CheckboxGroup extends Group
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValues($value);
     }
@@ -89,7 +89,7 @@ class CheckboxGroup extends Group
     /**
      * {@inheritdoc}
      */
-    protected function isArray()
+    protected function isArray() : bool
     {
         return true;
     }

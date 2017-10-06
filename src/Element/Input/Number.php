@@ -33,7 +33,7 @@ class Number extends Input
     /**
      * {@inheritdoc}
      */
-    protected function init()
+    protected function init() : void
     {
         $this->validator = new NumberValidator();
         $this->validator->setStep(1);
@@ -44,7 +44,7 @@ class Number extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'number';
     }
@@ -52,7 +52,7 @@ class Number extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doSetMin($min)
+    protected function doSetMin(string $min) : void
     {
         $this->validator->setMin($min);
     }
@@ -60,7 +60,7 @@ class Number extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doSetMax($max)
+    protected function doSetMax(string $max) : void
     {
         $this->validator->setMax($max);
     }
@@ -68,7 +68,7 @@ class Number extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doSetStep($step)
+    protected function doSetStep(string $step) : void
     {
         $this->validator->setStep($step === 'any' ? null : $step);
     }
@@ -76,7 +76,7 @@ class Number extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setValue($value);
     }

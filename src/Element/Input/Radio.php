@@ -19,7 +19,7 @@ class Radio extends Input
     /**
      * {@inheritdoc}
      */
-    protected function getType()
+    protected function getType() : string
     {
         return 'radio';
     }
@@ -27,7 +27,7 @@ class Radio extends Input
     /**
      * {@inheritdoc}
      */
-    protected function doPopulate($value)
+    protected function doPopulate($value) : void
     {
         $this->setChecked($value === $this->getValue());
     }
