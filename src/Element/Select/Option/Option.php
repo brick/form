@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Brick\Form\Element\Select\Option;
 
 use Brick\Html\Tag;

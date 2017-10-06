@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Brick\Form\Element\Select;
 
 use Brick\Form\Element\Select;

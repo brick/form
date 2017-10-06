@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Brick\Form\Element\Input;
 
 use Brick\Form\Element\Input;
