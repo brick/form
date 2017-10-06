@@ -4,7 +4,7 @@ namespace Brick\Form\Element;
 
 use Brick\Form\Attribute\ValueAttribute;
 use Brick\Form\Element;
-use Brick\Html\ContainerTag;
+use Brick\Html\Tag;
 
 /**
  * Represents a button element.
@@ -14,7 +14,7 @@ abstract class Button extends Element
     use ValueAttribute;
 
     /**
-     * @var \Brick\Html\ContainerTag|null
+     * @var \Brick\Html\Tag|null
      */
     private $tag = null;
 
@@ -24,7 +24,7 @@ abstract class Button extends Element
     protected function getTag()
     {
         if ($this->tag === null) {
-            $this->tag = new ContainerTag('button', [
+            $this->tag = new Tag('button', [
                 'type' => $this->getType()
             ]);
         }

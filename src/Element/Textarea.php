@@ -4,7 +4,7 @@ namespace Brick\Form\Element;
 
 use Brick\Form\Element;
 use Brick\Form\Attribute\MaxLengthAttribute;
-use Brick\Html\ContainerTag;
+use Brick\Html\Tag;
 
 /**
  * Represents a textarea element.
@@ -14,7 +14,7 @@ class Textarea extends Element
     use MaxLengthAttribute;
 
     /**
-     * @var \Brick\Html\ContainerTag|null
+     * @var \Brick\Html\Tag|null
      */
     private $tag = null;
 
@@ -31,7 +31,7 @@ class Textarea extends Element
     protected function getTag()
     {
         if ($this->tag === null) {
-            $this->tag = new ContainerTag('textarea');
+            $this->tag = new Tag('textarea');
         }
 
         return $this->tag;

@@ -3,7 +3,7 @@
 namespace Brick\Form\Element;
 
 use Brick\Form\Element;
-use Brick\Html\SelfClosingTag;
+use Brick\Html\Tag;
 
 /**
  * Represents an input element.
@@ -13,7 +13,7 @@ abstract class Input extends Element
     // @todo autofocus, disabled, form attributes
 
     /**
-     * @var \Brick\Html\SelfClosingTag|null
+     * @var \Brick\Html\Tag|null
      */
     private $tag = null;
 
@@ -23,7 +23,7 @@ abstract class Input extends Element
     protected function getTag()
     {
         if ($this->tag === null) {
-            $this->tag = new SelfClosingTag('input', [
+            $this->tag = new Tag('input', [
                 'type' => $this->getType()
             ]);
         }

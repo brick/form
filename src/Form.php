@@ -2,7 +2,7 @@
 
 namespace Brick\Form;
 
-use Brick\Html\ContainerTag;
+use Brick\Html\Tag;
 use Brick\Http\Request;
 use Brick\Translation\Translator;
 
@@ -12,7 +12,7 @@ use Brick\Translation\Translator;
 class Form extends Base
 {
     /**
-     * @var \Brick\Html\ContainerTag|null
+     * @var \Brick\Html\Tag|null
      */
     private $tag;
 
@@ -73,12 +73,12 @@ class Form extends Base
     }
 
     /**
-     * @return \Brick\Html\ContainerTag
+     * @return \Brick\Html\Tag
      */
     private function getTag()
     {
         if ($this->tag === null) {
-            $this->tag = new ContainerTag('form');
+            $this->tag = new Tag('form');
         }
 
         return $this->tag;

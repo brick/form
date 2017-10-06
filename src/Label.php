@@ -2,7 +2,7 @@
 
 namespace Brick\Form;
 
-use Brick\Html\ContainerTag;
+use Brick\Html\Tag;
 
 /**
  * Represents a label that targets a form element.
@@ -15,7 +15,7 @@ class Label
     private $element;
 
     /**
-     * @var \Brick\Html\ContainerTag
+     * @var \Brick\Html\Tag
      */
     private $tag;
 
@@ -27,7 +27,7 @@ class Label
     public function __construct(Element $element)
     {
         $this->element = $element;
-        $this->tag = new ContainerTag('label');
+        $this->tag = new Tag('label');
     }
 
     /**

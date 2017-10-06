@@ -5,7 +5,7 @@ namespace Brick\Form\Element;
 use Brick\Form\Element;
 use Brick\Form\Element\Select\Option\Option;
 use Brick\Form\Element\Select\Option\OptionGroup;
-use Brick\Html\ContainerTag;
+use Brick\Html\Tag;
 
 /**
  * Represents a select element.
@@ -13,7 +13,7 @@ use Brick\Html\ContainerTag;
 abstract class Select extends Element
 {
     /**
-     * @var \Brick\Html\ContainerTag|null
+     * @var \Brick\Html\Tag|null
      */
     private $tag = null;
 
@@ -30,7 +30,7 @@ abstract class Select extends Element
     protected function getTag()
     {
         if ($this->tag === null) {
-            $this->tag = new ContainerTag('select');
+            $this->tag = new Tag('select');
 
             if ($this->isArray()) {
                 $this->tag->setAttribute('multiple', 'multiple');

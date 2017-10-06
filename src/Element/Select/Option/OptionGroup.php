@@ -2,7 +2,7 @@
 
 namespace Brick\Form\Element\Select\Option;
 
-use Brick\Html\ContainerTag;
+use Brick\Html\Tag;
 
 /**
  * Represents an option group inside a select element.
@@ -12,7 +12,7 @@ class OptionGroup extends OptionOrGroup
     /**
      * The HTML tag used to render this OptionGroup.
      *
-     * @var \Brick\Html\ContainerTag
+     * @var \Brick\Html\Tag
      */
     private $tag;
 
@@ -30,7 +30,7 @@ class OptionGroup extends OptionOrGroup
      */
     public function __construct($label)
     {
-        $this->tag = new ContainerTag('optgroup', [
+        $this->tag = new Tag('optgroup', [
             'label' => $label
         ]);
     }
