@@ -57,7 +57,7 @@ class InputGroup extends Group
     }
 
     /**
-     * @return \Brick\Form\Element\Input\Text[]
+     * @return Input\Text[]
      */
     public function getElements() : array
     {

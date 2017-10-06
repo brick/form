@@ -104,7 +104,7 @@ class Form extends Base
     }
 
     /**
-     * @return \Brick\Form\Component[]
+     * @return Component[]
      */
     public function getComponents() : array
     {

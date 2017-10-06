@@ -19,7 +19,7 @@ trait IsElement
     abstract protected function getTag() : Tag;
 
     /**
-     * @param \Brick\Validation\Validator $validator
+     * @param Validator $validator
      *
      * @return Component
      */
