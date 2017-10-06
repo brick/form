@@ -37,7 +37,7 @@ abstract class Base
      */
     public function hasErrors() : bool
     {
-        return count($this->errors) !== 0;
+        return ! empty($this->errors);
     }
 
     /**
