@@ -718,22 +718,6 @@ class Form extends Base
     }
 
     /**
-     * Populates the form with the request data.
-     *
-     * @param Request $request
-     *
-     * @return Form
-     */
-    public function populateFromRequest(Request $request) : Form
-    {
-        return $this->populate(
-            $this->isMethodPost()
-                ? $request->getPost()
-                : $request->getQuery()
-        );
-    }
-
-    /**
      * Validates the form, and adds errors when required.
      *
      * This method is only meant to be implemented by subclasses, to call `addError()` on the form itself,
