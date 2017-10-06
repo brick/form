@@ -20,12 +20,4 @@ trait AutocompleteAttribute
 
         return $this;
     }
-
-    /**
-     * @return string|null
-     */
-    public function isChecked()
-    {
-        return $this->getTag()->getAttribute('autocomplete');
-    }
 }
