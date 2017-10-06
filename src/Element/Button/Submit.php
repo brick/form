@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Brick\Form\Element\Button;
 
+use Brick\Form\Attribute\FormAttributes;
 use Brick\Form\Element;
 
 /**
@@ -11,6 +12,8 @@ use Brick\Form\Element;
  */
 class Submit extends Element\Button
 {
+    use FormAttributes;
+
     /**
      * @var bool
      */
