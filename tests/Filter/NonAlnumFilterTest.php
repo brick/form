@@ -20,7 +20,7 @@ class NonAlnumFilterTest extends TestCase
     public function testFilter($value, $expected)
     {
         $filter = new NonAlnumFilter();
-        $this->assertSame($expected, $filter->filter($value));
+        $this->assertSame($expected, $filter($value));
     }
 
     /**

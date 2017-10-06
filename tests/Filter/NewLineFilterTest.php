@@ -21,7 +21,7 @@ class NewLineFilterTest extends TestCase
     public function testFilter($value, $replaceWith, $expected)
     {
         $filter = new NewLineFilter($replaceWith);
-        $this->assertSame($expected, $filter->filter($value));
+        $this->assertSame($expected, $filter($value));
     }
 
     /**
