@@ -17,23 +17,19 @@ abstract class Base
     /**
      * @param string $errorMessage
      *
-     * @return static
+     * @return void
      */
-    public function addError(string $errorMessage) : Base
+    public function addError(string $errorMessage) : void
     {
         $this->errors[] = $errorMessage;
-
-        return $this;
     }
 
     /**
-     * @return static
+     * @return void
      */
-    public function resetErrors() : Base
+    public function resetErrors() : void
     {
         $this->errors = [];
-
-        return $this;
     }
 
     /**
