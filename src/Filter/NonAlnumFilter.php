@@ -7,12 +7,14 @@ namespace Brick\Form\Filter;
 /**
  * Removes non (ASCII) alphanumeric characters.
  */
-class NonAlnumFilter implements Filter
+class NonAlnumFilter
 {
     /**
-     * {@inheritdoc}
+     * @param string $value
+     *
+     * @return string
      */
-    public function filter(string $value) : string
+    public function __invoke(string $value) : string
     {
         return preg_replace('/[^0-9a-zA-Z]/', '', $value);
     }

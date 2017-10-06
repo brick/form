@@ -7,7 +7,7 @@ namespace Brick\Form\Filter;
 /**
  * Filters out new lines in a string.
  */
-class NewLineFilter implements Filter
+class NewLineFilter
 {
     /**
      * @var string
@@ -23,9 +23,11 @@ class NewLineFilter implements Filter
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $value
+     *
+     * @return string
      */
-    public function filter(string $value) : string
+    public function __invoke(string $value) : string
     {
         return str_replace(["\r\n", "\r", "\n"], $this->replaceWith, $value);
     }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Brick\Form;
 
-use Brick\Form\Filter\Filter;
 use Brick\Translation\Translator;
 use Brick\Validation\Validator;
 
@@ -31,7 +30,7 @@ abstract class Component extends Base
     protected $required = false;
 
     /**
-     * @var Filter[]
+     * @var callable[]
      */
     private $filters = [];
 
@@ -149,7 +148,7 @@ abstract class Component extends Base
     private function filter(string $value) : string
     {
         foreach ($this->filters as $filter) {
-            $value = $filter->filter($value);
+            $value = $filter($value);
         }
 
         return $value;
@@ -172,76 +171,22 @@ abstract class Component extends Base
     }
 
     /**
-     * @todo protected
-     *
      * Adds a filter.
      *
-     * Adding twice the same instance of a filter has no effect.
+     * A filter can be any function or closure that accepts a string and returns a string.
      *
-     * @param Filter $filter
+     * @param callable $filter The filter function.
      *
      * @return static
      */
-    public function addFilter(Filter $filter) : Component
+    public function addFilter(callable $filter) : Component
     {
-        $hash = spl_object_hash($filter);
-        $this->filters[$hash] = $filter;
+        $this->filters[] = $filter;
 
         return $this;
     }
 
     /**
-     * Checks whether a filter is present.
-     *
-     * @param Filter $filter
-     *
-     * @return bool
-     */
-    protected function hasFilter(Filter $filter) : bool
-    {
-        $hash = spl_object_hash($filter);
-
-        return isset($this->filters[$hash]);
-    }
-
-    /**
-     * Removes a filter.
-     *
-     * Removing a non-existent filter has no effect.
-     *
-     * @param Filter $filter
-     *
-     * @return static
-     */
-    protected function removeFilter(Filter $filter) : Component
-    {
-        $hash = spl_object_hash($filter);
-        unset($this->filters[$hash]);
-
-        return $this;
-    }
-
-    /**
-     * Removes all filters of the given class name.
-     *
-     * @param string $className
-     *
-     * @return static
-     */
-    protected function removeFilters(string $className) : Component
-    {
-        foreach ($this->filters as $key => $filter) {
-            if ($filter instanceof $className) {
-                unset($this->filters[$key]);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @todo protected
-     *
      * Adds a validator.
      *
      * Adding twice the same instance of a validator has no effect.
