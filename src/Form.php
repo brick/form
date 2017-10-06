@@ -90,19 +90,17 @@ class Form extends Base
      * @param string    $name
      * @param Component $component
      *
-     * @return Component
+     * @return void
      *
      * @throws \RuntimeException
      */
-    private function addComponent(string $name, Component $component) : Component
+    private function addComponent(string $name, Component $component) : void
     {
         if (isset($this->components[$name])) {
             throw new \RuntimeException(sprintf('Duplicate component name "%s"', $name));
         }
 
         $this->components[$name] = $component;
-
-        return $component;
     }
 
     /**
@@ -136,7 +134,10 @@ class Form extends Base
      */
     public function addButtonButton(string $name) : Element\Button\Button
     {
-        return $this->addComponent($name, new Element\Button\Button($this, $name));
+        $button = new Element\Button\Button($this, $name);
+        $this->addComponent($name, $button);
+
+        return $button;
     }
 
     /**
@@ -146,7 +147,10 @@ class Form extends Base
      */
     public function addButtonReset(string $name) : Element\Button\Reset
     {
-        return $this->addComponent($name, new Element\Button\Reset($this, $name));
+        $button = new Element\Button\Reset($this, $name);
+        $this->addComponent($name, $button);
+
+        return $button;
     }
 
     /**
@@ -156,7 +160,10 @@ class Form extends Base
      */
     public function addButtonSubmit(string $name) : Element\Button\Submit
     {
-        return $this->addComponent($name, new Element\Button\Submit($this, $name));
+        $button = new Element\Button\Submit($this, $name);
+        $this->addComponent($name, $button);
+
+        return $button;
     }
 
     /**
@@ -166,7 +173,10 @@ class Form extends Base
      */
     public function addInputButton(string $name) : Element\Input\Button
     {
-        return $this->addComponent($name, new Element\Input\Button($this, $name));
+        $input = new Element\Input\Button($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -176,7 +186,10 @@ class Form extends Base
      */
     public function addInputCheckbox(string $name) : Element\Input\Checkbox
     {
-        return $this->addComponent($name, new Element\Input\Checkbox($this, $name));
+        $input = new Element\Input\Checkbox($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -186,7 +199,10 @@ class Form extends Base
      */
     public function addInputColor(string $name) : Element\Input\Color
     {
-        return $this->addComponent($name, new Element\Input\Color($this, $name));
+        $input = new Element\Input\Color($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -196,7 +212,10 @@ class Form extends Base
      */
     public function addInputDate(string $name) : Element\Input\Date
     {
-        return $this->addComponent($name, new Element\Input\Date($this, $name));
+        $input = new Element\Input\Date($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -206,7 +225,10 @@ class Form extends Base
      */
     public function addInputDateTime(string $name) : Element\Input\DateTime
     {
-        return $this->addComponent($name, new Element\Input\DateTime($this, $name));
+        $input = new Element\Input\DateTime($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -216,7 +238,10 @@ class Form extends Base
      */
     public function addInputDateTimeLocal(string $name) : Element\Input\DateTimeLocal
     {
-        return $this->addComponent($name, new Element\Input\DateTimeLocal($this, $name));
+        $input = new Element\Input\DateTimeLocal($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -226,7 +251,10 @@ class Form extends Base
      */
     public function addInputEmail(string $name) : Element\Input\Email
     {
-        return $this->addComponent($name, new Element\Input\Email($this, $name));
+        $input = new Element\Input\Email($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -238,7 +266,10 @@ class Form extends Base
     {
         $this->setEnctypeMultipart();
 
-        return $this->addComponent($name, new Element\Input\File($this, $name));
+        $input = new Element\Input\File($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -248,7 +279,10 @@ class Form extends Base
      */
     public function addInputHidden(string $name) : Element\Input\Hidden
     {
-        return $this->addComponent($name, new Element\Input\Hidden($this, $name));
+        $input = new Element\Input\Hidden($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -258,7 +292,10 @@ class Form extends Base
      */
     public function addInputImage(string $name) : Element\Input\Image
     {
-        return $this->addComponent($name, new Element\Input\Image($this, $name));
+        $input = new Element\Input\Image($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -268,7 +305,10 @@ class Form extends Base
      */
     public function addInputMonth(string $name) : Element\Input\Month
     {
-        return $this->addComponent($name, new Element\Input\Month($this, $name));
+        $input = new Element\Input\Month($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -278,7 +318,10 @@ class Form extends Base
      */
     public function addInputNumber(string $name) : Element\Input\Number
     {
-        return $this->addComponent($name, new Element\Input\Number($this, $name));
+        $input = new Element\Input\Number($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -288,7 +331,10 @@ class Form extends Base
      */
     public function addInputPassword(string $name) : Element\Input\Password
     {
-        return $this->addComponent($name, new Element\Input\Password($this, $name));
+        $input = new Element\Input\Password($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -298,7 +344,10 @@ class Form extends Base
      */
     public function addInputRadio(string $name) : Element\Input\Radio
     {
-        return $this->addComponent($name, new Element\Input\Radio($this, $name));
+        $input = new Element\Input\Radio($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -308,7 +357,10 @@ class Form extends Base
      */
     public function addInputRange(string $name) : Element\Input\Range
     {
-        return $this->addComponent($name, new Element\Input\Range($this, $name));
+        $input = new Element\Input\Range($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -318,7 +370,10 @@ class Form extends Base
      */
     public function addInputReset(string $name) : Element\Input\Reset
     {
-        return $this->addComponent($name, new Element\Input\Reset($this, $name));
+        $input = new Element\Input\Reset($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -328,7 +383,10 @@ class Form extends Base
      */
     public function addInputSearch(string $name) : Element\Input\Search
     {
-        return $this->addComponent($name, new Element\Input\Search($this, $name));
+        $input = new Element\Input\Search($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -338,7 +396,10 @@ class Form extends Base
      */
     public function addInputSubmit(string $name) : Element\Input\Submit
     {
-        return $this->addComponent($name, new Element\Input\Submit($this, $name));
+        $input = new Element\Input\Submit($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -348,7 +409,10 @@ class Form extends Base
      */
     public function addInputTel(string $name) : Element\Input\Tel
     {
-        return $this->addComponent($name, new Element\Input\Tel($this, $name));
+        $input = new Element\Input\Tel($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -358,7 +422,10 @@ class Form extends Base
      */
     public function addInputText(string $name) : Element\Input\Text
     {
-        return $this->addComponent($name, new Element\Input\Text($this, $name));
+        $input = new Element\Input\Text($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -368,7 +435,10 @@ class Form extends Base
      */
     public function addInputTime(string $name) : Element\Input\Time
     {
-        return $this->addComponent($name, new Element\Input\Time($this, $name));
+        $input = new Element\Input\Time($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -378,7 +448,10 @@ class Form extends Base
      */
     public function addInputUrl(string $name) : Element\Input\Url
     {
-        return $this->addComponent($name, new Element\Input\Url($this, $name));
+        $input = new Element\Input\Url($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -388,7 +461,10 @@ class Form extends Base
      */
     public function addInputWeek(string $name) : Element\Input\Week
     {
-        return $this->addComponent($name, new Element\Input\Week($this, $name));
+        $input = new Element\Input\Week($this, $name);
+        $this->addComponent($name, $input);
+
+        return $input;
     }
 
     /**
@@ -398,7 +474,10 @@ class Form extends Base
      */
     public function addSingleSelect(string $name) : Element\Select\SingleSelect
     {
-        return $this->addComponent($name, new Element\Select\SingleSelect($this, $name));
+        $select = new Element\Select\SingleSelect($this, $name);
+        $this->addComponent($name, $select);
+
+        return $select;
     }
 
     /**
@@ -408,7 +487,10 @@ class Form extends Base
      */
     public function addMultipleSelect(string $name) : Element\Select\MultipleSelect
     {
-        return $this->addComponent($name, new Element\Select\MultipleSelect($this, $name . '[]'));
+        $select = new Element\Select\MultipleSelect($this, $name . '[]');
+        $this->addComponent($name, $select);
+
+        return $select;
     }
 
     /**
@@ -418,7 +500,10 @@ class Form extends Base
      */
     public function addTextarea(string $name) : Element\Textarea
     {
-        return $this->addComponent($name, new Element\Textarea($this, $name));
+        $textarea = new Element\Textarea($this, $name);
+        $this->addComponent($name, $textarea);
+
+        return $textarea;
     }
 
     /**
@@ -428,7 +513,10 @@ class Form extends Base
      */
     public function addCheckboxGroup(string $name) : Group\CheckboxGroup
     {
-        return $this->addComponent($name, new Group\CheckboxGroup($this, $name));
+        $checkboxGroup = new Group\CheckboxGroup($this, $name);
+        $this->addComponent($name, $checkboxGroup);
+
+        return $checkboxGroup;
     }
 
     /**
@@ -438,7 +526,10 @@ class Form extends Base
      */
     public function addRadioGroup(string $name) : Group\RadioGroup
     {
-        return $this->addComponent($name, new Group\RadioGroup($this, $name));
+        $radioGroup = new Group\RadioGroup($this, $name);
+        $this->addComponent($name, $radioGroup);
+
+        return $radioGroup;
     }
 
     /**
@@ -448,7 +539,10 @@ class Form extends Base
      */
     public function addInputGroup(string $name) : Group\InputGroup
     {
-        return $this->addComponent($name, new Group\InputGroup($this, $name));
+        $inputGroup = new Group\InputGroup($this, $name);
+        $this->addComponent($name, $inputGroup);
+
+        return $inputGroup;
     }
 
     /**
