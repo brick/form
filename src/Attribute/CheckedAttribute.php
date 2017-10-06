@@ -9,7 +9,7 @@ namespace Brick\Form\Attribute;
  */
 trait CheckedAttribute
 {
-    use AbstractTag;
+    use IsElement;
 
     /**
      * @param bool $checked

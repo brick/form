@@ -11,7 +11,7 @@ use Brick\Validation\Validator\PatternValidator;
  */
 trait PatternAttribute
 {
-    use AbstractTag;
+    use IsElement;
 
     /**
      * @param string $pattern

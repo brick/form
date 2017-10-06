@@ -9,7 +9,7 @@ namespace Brick\Form\Attribute;
  */
 trait ValueAttribute
 {
-    use AbstractTag;
+    use IsElement;
 
     /**
      * @param string $value

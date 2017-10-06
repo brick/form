@@ -9,7 +9,7 @@ namespace Brick\Form\Attribute;
  */
 trait FormAttributes
 {
-    use AbstractTag;
+    use IsElement;
 
     /**
      * @param string $action

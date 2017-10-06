@@ -11,7 +11,7 @@ use Brick\Validation\Validator\StringValidator;
  */
 trait MaxLengthAttribute
 {
-    use AbstractTag;
+    use IsElement;
 
     /**
      * @param string $maxLength

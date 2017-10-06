@@ -9,7 +9,7 @@ namespace Brick\Form\Attribute;
  */
 trait AutocompleteAttribute
 {
-    use AbstractTag;
+    use IsElement;
 
     /**
      * @param string $autocomplete

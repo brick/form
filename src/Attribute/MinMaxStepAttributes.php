@@ -9,7 +9,7 @@ namespace Brick\Form\Attribute;
  */
 trait MinMaxStepAttributes
 {
-    use AbstractTag;
+    use IsElement;
 
     /**
      * @param string $min

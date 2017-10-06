@@ -9,9 +9,9 @@ use Brick\Html\Tag;
 use Brick\Validation\Validator;
 
 /**
- * Enforces the presence of an HTML tag.
+ * Enforces the usage of a trait on an Element class, and provides static code analysis capabilities.
  */
-trait AbstractTag
+trait IsElement
 {
     /**
      * @return Tag
@@ -21,14 +21,14 @@ trait AbstractTag
     /**
      * @param \Brick\Validation\Validator $validator
      *
-     * @return static
+     * @return Component
      */
     abstract protected function addValidator(Validator $validator) : Component;
 
     /**
      * @param string $className
      *
-     * @return static
+     * @return Component
      */
     abstract protected function removeValidators(string $className) : Component;
 }
