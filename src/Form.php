@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Brick\Form;
 
 use Brick\Html\Tag;
-use Brick\Http\Request;
 use Brick\Translation\Translator;
 
 /**
