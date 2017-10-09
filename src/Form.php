@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Brick\Form;
 
 use Brick\Html\Tag;
-use Brick\Translation\Translator;
 
 /**
  * Represents an HTML form.
@@ -28,7 +27,12 @@ class Form extends Base
     private $ids = [];
 
     /**
-     * @var Translator|null
+     * An optional translation function.
+     *
+     * This function must take the translation key as unique parameter, and return a translated string,
+     * or null if not available: `function (string $key) : ?string`.
+     *
+     * @var callable|null
      */
     private $translator;
 
@@ -781,19 +785,19 @@ class Form extends Base
     }
 
     /**
-     * @return Translator|null
+     * @return callable|null
      */
-    public function getTranslator() : ?Translator
+    public function getTranslator() : ?callable
     {
         return $this->translator;
     }
 
     /**
-     * @param Translator $translator
+     * @param callable $translator
      *
      * @return Form
      */
-    public function setTranslator(Translator $translator) : Form
+    public function setTranslator(callable $translator) : Form
     {
         $this->translator = $translator;
 

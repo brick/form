@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Brick\Form;
 
-use Brick\Translation\Translator;
 use Brick\Validation\Validator;
 
 /**
@@ -18,11 +17,6 @@ abstract class Component extends Base
      * @var Form
      */
     protected $form;
-
-    /**
-     * @var Translator|null
-     */
-    protected $translator = null;
 
     /**
      * @var bool
@@ -128,16 +122,16 @@ abstract class Component extends Base
      */
     private function addTranslatableError(string $messageKey, string $defaultMessage) : void
     {
-        $translator = $this->form->getTranslator();
+        $message = $defaultMessage;
 
-        if ($translator) {
-            $translatedMessage = $translator->translate($messageKey);
-            if ($translatedMessage !== $messageKey) {
-                $defaultMessage = $translatedMessage;
+        if (null !== $translator = $this->form->getTranslator()) {
+            $translatedMessage = $translator($messageKey);
+            if ($translatedMessage !== null) {
+                $message = $translatedMessage;
             }
         }
 
-        $this->addError($defaultMessage);
+        $this->addError($message);
     }
 
     /**
