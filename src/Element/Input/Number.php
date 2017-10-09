@@ -38,7 +38,7 @@ class Number extends Input
     protected function init() : void
     {
         $this->validator = new NumberValidator();
-        $this->validator->setStep(1);
+        $this->validator->setStep('1');
 
         $this->addValidator($this->validator);
     }

@@ -24,7 +24,7 @@ trait MaxLengthAttribute
         $this->removeValidators(StringValidator::class);
 
         if ($maxLength !== '') {
-            $validator = new StringValidator(0, $maxLength);
+            $validator = new StringValidator(0, (int) $maxLength);
             $this->addValidator($validator);
         }
 
