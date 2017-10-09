@@ -14,8 +14,7 @@
     "require": {
         "php": ">=7.1",
         "brick/html": "~0.1.1",
-        "brick/validation": "~0.2.0",
-        "brick/brick": "dev-master"
+        "brick/validation": "~0.2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "6.*",
