@@ -18,7 +18,7 @@ abstract class Select extends Element
     /**
      * @var Tag|null
      */
-    private $tag = null;
+    private $tag;
 
     /**
      * The options and option groups in this Select.

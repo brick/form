@@ -18,7 +18,7 @@ class Textarea extends Element
     /**
      * @var Tag|null
      */
-    private $tag = null;
+    private $tag;
 
     /**
      * The textarea contents.

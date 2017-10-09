@@ -18,7 +18,7 @@ abstract class Button extends Element
     /**
      * @var Tag|null
      */
-    private $tag = null;
+    private $tag;
 
     /**
      * {@inheritdoc}
