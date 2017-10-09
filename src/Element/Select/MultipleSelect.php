@@ -19,7 +19,7 @@ class MultipleSelect extends Select
     public function setValues(array $values) : MultipleSelect
     {
         foreach ($this->getOptions() as $option) {
-            $option->setSelected(in_array($option->getValue(), $values));
+            $option->setSelected(in_array($option->getValue(), $values, true));
         }
 
         return $this;
