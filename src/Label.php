@@ -100,7 +100,7 @@ class Label
      */
     public function open() : string
     {
-        return $this->tag->renderOpeningTag();
+        return $this->tag->setAttribute('for', $this->element->getId())->renderOpeningTag();
     }
 
     /**
