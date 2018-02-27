@@ -22,7 +22,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Brick\\Form\\": "src/",
+            "Brick\\Form\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Brick\\Form\\Tests\\": "tests/"
         }
     }
