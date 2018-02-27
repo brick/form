@@ -25,7 +25,5 @@
             "Brick\\Form\\": "src/",
             "Brick\\Form\\Tests\\": "tests/"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
