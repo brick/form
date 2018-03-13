@@ -65,7 +65,7 @@ class FormTest extends TestCase
         $form = new Form();
         $form->addButtonButton('submit');
 
-        $this->assertFalse($form->getComponent('submit')->isRequired());
+        $this->assertInstanceOf(Button::class, $form->getComponent('submit'));
     }
 
     /**
