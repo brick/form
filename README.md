@@ -13,14 +13,11 @@ A library to create, filter and validate web forms.
 Installation
 ------------
 
-This library is installable via [Composer](https://getcomposer.org/).
-Just define the following requirement in your `composer.json` file:
+This library is installable via [Composer](https://getcomposer.org/):
 
-    {
-        "require": {
-            "brick/form": "dev-master"
-        }
-    }
+```bash
+composer require brick/form
+```
 
 Requirements
 ------------
