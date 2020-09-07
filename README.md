@@ -22,7 +22,7 @@ composer require brick/form
 Requirements
 ------------
 
-This library requires PHP >= 7.1, or [HHVM](http://hhvm.com/).
+This library requires PHP >= 7.1.
 
 Overview
 --------
