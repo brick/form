@@ -5,7 +5,7 @@ Brick\Form
 
 A library to create, filter and validate web forms.
 
-[![Build Status](https://secure.travis-ci.org/brick/form.svg?branch=master)](http://travis-ci.org/brick/form)
+[![Build Status](https://github.com/brick/form/workflows/CI/badge.svg)](https://github.com/brick/form/actions)
 [![Coverage Status](https://coveralls.io/repos/github/brick/form/badge.svg?branch=master)](https://coveralls.io/github/brick/form?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/brick/form/v/stable)](https://packagist.org/packages/brick/form)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
